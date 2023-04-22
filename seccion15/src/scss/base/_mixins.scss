@@ -1,0 +1,36 @@
+@use "base/variables" as vr;
+
+//Ejemplo Mixin
+// @mixin heading($color:blue, $border-radius:false){
+//     text-transform: uppercase;
+//     font-size: 2rem;
+//     color: $color;
+
+//     @if $border-radius{
+//         border-radius: 1rem;
+//     }
+// }
+
+@mixin telefono{
+    @media(min-width: vr.$telefono){
+        @content;
+    }
+}
+
+@mixin tablet{
+    @media(min-width: vr.$tablet){
+        @content;
+    }
+}
+
+@mixin desktop{
+    @media(min-width: vr.$desktop){
+        @content;
+    }
+}
+
+@mixin desktopXL{
+    @media(min-width: vr.$desktopXL){
+        @content;
+    }
+}
