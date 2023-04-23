@@ -324,6 +324,7 @@ body {
 p {
   font-size: 2rem;
   color: #000;
+  line-height: 1.5;
 }
 
 .contenedor {
@@ -352,37 +353,124 @@ h3 {
   font-size: 3rem;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
 .header {
   background-color: #4CB8B3;
+  padding: 2rem;
 }
 .header h1 {
   color: #FFF;
+  text-align: center;
 }
-
-@media (min-width: 480px) {
-  .navegacion-principal {
-    background-color: red;
+@media (min-width: 768px) {
+  .header h1 {
+    margin: 0;
   }
 }
 @media (min-width: 768px) {
-  .navegacion-principal {
-    background-color: #4CB8B3;
+  .header .contenido-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
-@media (min-width: 992px) {
-  .navegacion-principal {
-    background-color: #FEF46D;
-  }
-}
-@media (min-width: 1200px) {
-  .navegacion-principal {
-    background-color: #752F97;
-  }
-}
+
 .navegacion-principal a {
+  display: block;
+  text-align: center;
+  margin-bottom: 1rem;
   color: #FFF;
   font-size: 2.4rem;
 }
+@media (min-width: 768px) {
+  .navegacion-principal a {
+    margin: 0;
+  }
+}
 .navegacion-principal a:hover {
   color: #FEF46D;
+}
+@media (min-width: 768px) {
+  .navegacion-principal {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+}
+
+.video {
+  position: relative;
+  max-height: 60rem;
+  min-height: 50rem;
+  overflow: hidden;
+}
+.video .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgb(165, 3, 255);
+  background: linear-gradient(270deg, rgba(165, 3, 255, 0.5) 0%, rgba(255, 0, 110, 0.3) 100%);
+  display: flex;
+  align-items: center;
+}
+.video video {
+  display: block;
+  width: auto;
+}
+@media (min-width: 992px) {
+  .video video {
+    width: 100%;
+  }
+}
+
+.contenido-video {
+  z-index: 10;
+}
+.contenido-video h2 {
+  color: #FFF;
+  font-size: 7rem;
+  margin: 0;
+}
+.contenido-video p {
+  background-color: #F53756;
+  display: inline-block;
+  padding: 1rem 3rem;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 2.4rem;
+  margin: 0;
+}
+
+.sobre-festival {
+  padding: 5rem 0;
+}
+@media (min-width: 768px) {
+  .sobre-festival {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+  }
+}
+
+.contenido-festival {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .contenido-festival {
+    margin-top: 0;
+  }
+}
+.contenido-festival h2 {
+  margin-bottom: 2rem;
+}
+.contenido-festival .fecha {
+  color: #F53756;
+  font-weight: bold;
 }

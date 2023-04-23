@@ -1,36 +1,49 @@
 @use "base/variables" as vr;
-@use "base/mixins" as mx;
+@use "base/mixins" as mxn;
 
 .header{
     background-color: vr.$aqua;
+    padding: 2rem;
 
     h1{
         color: vr.$blanco;
+        text-align: center;
+        
+        @include mxn.tablet {
+            margin: 0;
+        }
+    }
+    
+    .contenido-header{
+
+        @include mxn.tablet {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
     }
 }
 
 .navegacion-principal{
-    @include mx.telefono{
-        background-color: red;
-    }
-
-    @include mx.tablet{
-        background-color: vr.$aqua;
-    }
-
-    @include mx.desktop{
-        background-color: vr.$amarillo;
-    }
-
-    @include mx.desktopXL{
-        background-color: vr.$morado;
-    }
     a{
+        display: block;
+        text-align: center;
+        margin-bottom: 1rem;
         color: vr.$blanco;
         font-size: 2.4rem;
+
+        @include mxn.tablet {
+            margin: 0;
+        }
 
         &:hover{
             color: vr.$amarillo;
         }
+    }
+
+    @include mxn.tablet {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
     }
 }
