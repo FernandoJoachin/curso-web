@@ -1,0 +1,36 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mx;
+
+.header{
+    background-color: vr.$aqua;
+
+    h1{
+        color: vr.$blanco;
+    }
+}
+
+.navegacion-principal{
+    @include mx.telefono{
+        background-color: red;
+    }
+
+    @include mx.tablet{
+        background-color: vr.$aqua;
+    }
+
+    @include mx.desktop{
+        background-color: vr.$amarillo;
+    }
+
+    @include mx.desktopXL{
+        background-color: vr.$morado;
+    }
+    a{
+        color: vr.$blanco;
+        font-size: 2.4rem;
+
+        &:hover{
+            color: vr.$amarillo;
+        }
+    }
+}
