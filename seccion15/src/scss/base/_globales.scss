@@ -12,11 +12,21 @@ html{
 body{
     font-family: vr.$fuente_principal;
     font-size: 1.6rem;
+
+    &.fijar-body{
+        overflow: hidden;
+    }
+
+    &.body-scroll{
+        padding-top: 8.6rem;
+        
+    }
 }
 
 p{
     font-size: 2rem;
     color: vr.$negro;
+    line-height: 1.5;
 }
 
 .contenedor{
@@ -43,4 +53,11 @@ h2{
 
 h3{
     font-size: 3rem;
+}
+
+img{
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
 }
