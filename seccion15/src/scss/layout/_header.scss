@@ -4,10 +4,16 @@
 .header{
     background-color: vr.$aqua;
     padding: 2rem;
+    &.fijo{
+        top: 0;
+        position: fixed;
+        width: 100%;
+    }
 
     h1{
         color: vr.$blanco;
         text-align: center;
+        margin-bottom: 3rem;
         
         @include mxn.tablet {
             margin: 0;

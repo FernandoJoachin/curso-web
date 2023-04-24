@@ -12,6 +12,15 @@ html{
 body{
     font-family: vr.$fuente_principal;
     font-size: 1.6rem;
+
+    &.fijar-body{
+        overflow: hidden;
+    }
+
+    &.body-scroll{
+        padding-top: 8.6rem;
+        
+    }
 }
 
 p{
@@ -48,5 +57,7 @@ h3{
 
 img{
     max-width: 100%;
+    width: 100%;
+    height: auto;
     display: block;
 }

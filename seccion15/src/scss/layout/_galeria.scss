@@ -1,0 +1,62 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.galeria{
+    padding: 5rem 0;
+
+    h3{
+        text-align: center;
+    }
+}
+
+.galeria-img{
+    @include mxn.resetear-lista;
+    @include mxn.grid(2,2rem);
+
+    @include mxn.telefono{
+        @include mxn.grid(3, 2rem);
+    }
+
+    @include mxn.tablet{
+        @include mxn.grid(4, 2rem);
+    }
+
+    @include mxn.desktop{
+        @include mxn.grid(6, 2rem);
+    }
+
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    place-items: center; //Centra vertical y horizontalmente
+
+    background-color: rgb(0 0 0 / 0.5);
+
+    picture{
+        display: block;
+        max-width: 80rem;
+    }
+}
+
+.btn-cerrar{
+    width: 5rem;
+    border-radius: 50%;
+    background-color: vr.$blanco;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
