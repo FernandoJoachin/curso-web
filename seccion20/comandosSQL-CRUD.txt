@@ -1,0 +1,395 @@
+PS C:\Users\Lenovo> mysql -u root -p
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 19
+Server version: 8.0.33 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASES
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+6 rows in set (0.01 sec)
+
+mysql> CREATE DATABASE appsalon;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SHOW DATABASES
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| appsalon           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> USE appsalon
+Database changed
+mysql> CREATE TABLE servicios (
+    -> id INT(11) NOT NULL AUTO_INCREMENT,
+    -> nombre VARCHAR(60) NOT NULL,
+    -> precio DECIMAL(6,2) NOT NULL,
+    -> PRIMARY KEY(id)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.05 sec)
+
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_appsalon |
++--------------------+
+| servicios          |
++--------------------+
+1 row in set (0.04 sec)
+
+mysql> DESCRIBE servicios
+    -> ;
++--------+--------------+------+-----+---------+----------------+
+| Field  | Type         | Null | Key | Default | Extra          |
++--------+--------------+------+-----+---------+----------------+
+| id     | int          | NO   | PRI | NULL    | auto_increment |
+| nombre | varchar(60)  | NO   |     | NULL    |                |
+| precio | decimal(6,2) | NO   |     | NULL    |                |
++--------+--------------+------+-----+---------+----------------+
+3 rows in set (0.03 sec)
+
+mysql> INSERT INTO servicios (nombre, precio) VALUES ("Corte de cabello de Adulto",80);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO servicios (nombre, precio) VALUES ("Corte de cabello de Niño",60);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO servicios (nombre,precio) VALUES ("Pintado de pelo", 70);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO servicios (nombre,precio) VALUES
+    -> ("Peinado de mujer",80),
+    -> ("Peinado de hombre",60);
+Query OK, 2 rows affected (0.02 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM servicios;
++----+----------------------------+--------+
+| id | nombre                     | precio |
++----+----------------------------+--------+
+|  1 | Corte de cabello de Adulto |  80.00 |
+|  2 | Corte de cabello de Niño   |  60.00 |
+|  3 | Pintado de pelo            |  70.00 |
+|  4 | Peinado de mujer           |  80.00 |
+|  5 | Peinado de hombre          |  60.00 |
++----+----------------------------+--------+
+5 rows in set (0.01 sec)
+
+mysql> SELECT nombre FROM servicios;
++----------------------------+
+| nombre                     |
++----------------------------+
+| Corte de cabello de Adulto |
+| Corte de cabello de Niño   |
+| Pintado de pelo            |
+| Peinado de mujer           |
+| Peinado de hombre          |
++----------------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT nombre,precio FROM servicios;
++----------------------------+--------+
+| nombre                     | precio |
++----------------------------+--------+
+| Corte de cabello de Adulto |  80.00 |
+| Corte de cabello de Niño   |  60.00 |
+| Pintado de pelo            |  70.00 |
+| Peinado de mujer           |  80.00 |
+| Peinado de hombre          |  60.00 |
++----------------------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT id,nombre,precio FROM servicios
+    -> ;
++----+----------------------------+--------+
+| id | nombre                     | precio |
++----+----------------------------+--------+
+|  1 | Corte de cabello de Adulto |  80.00 |
+|  2 | Corte de cabello de Niño   |  60.00 |
+|  3 | Pintado de pelo            |  70.00 |
+|  4 | Peinado de mujer           |  80.00 |
+|  5 | Peinado de hombre          |  60.00 |
++----+----------------------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT id,nombre,precio FROM servicios ORDER BY precio;
++----+----------------------------+--------+
+| id | nombre                     | precio |
++----+----------------------------+--------+
+|  2 | Corte de cabello de Niño   |  60.00 |
+|  5 | Peinado de hombre          |  60.00 |
+|  3 | Pintado de pelo            |  70.00 |
+|  1 | Corte de cabello de Adulto |  80.00 |
+|  4 | Peinado de mujer           |  80.00 |
++----+----------------------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT id,nombre,precio FROM servicios ORDER BY precio DESC;
++----+----------------------------+--------+
+| id | nombre                     | precio |
++----+----------------------------+--------+
+|  1 | Corte de cabello de Adulto |  80.00 |
+|  4 | Peinado de mujer           |  80.00 |
+|  3 | Pintado de pelo            |  70.00 |
+|  2 | Corte de cabello de Niño   |  60.00 |
+|  5 | Peinado de hombre          |  60.00 |
++----+----------------------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT id,nombre,precio FROM servicios ORDER BY id DESC;
++----+----------------------------+--------+
+| id | nombre                     | precio |
++----+----------------------------+--------+
+|  5 | Peinado de hombre          |  60.00 |
+|  4 | Peinado de mujer           |  80.00 |
+|  3 | Pintado de pelo            |  70.00 |
+|  2 | Corte de cabello de Niño   |  60.00 |
+|  1 | Corte de cabello de Adulto |  80.00 |
++----+----------------------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM servicios LIMIT 2;
++----+----------------------------+--------+
+| id | nombre                     | precio |
++----+----------------------------+--------+
+|  1 | Corte de cabello de Adulto |  80.00 |
+|  2 | Corte de cabello de Niño   |  60.00 |
++----+----------------------------+--------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM servicios ORDER BY id DESC LIMIT 2;
++----+-------------------+--------+
+| id | nombre            | precio |
++----+-------------------+--------+
+|  5 | Peinado de hombre |  60.00 |
+|  4 | Peinado de mujer  |  80.00 |
++----+-------------------+--------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM servicios WHERE id = 3;
++----+-----------------+--------+
+| id | nombre          | precio |
++----+-----------------+--------+
+|  3 | Pintado de pelo |  70.00 |
++----+-----------------+--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM servicios
+    -> ;
++----+----------------------------+--------+
+| id | nombre                     | precio |
++----+----------------------------+--------+
+|  1 | Corte de cabello de Adulto |  80.00 |
+|  2 | Corte de cabello de Niño   |  60.00 |
+|  3 | Pintado de pelo            |  70.00 |
+|  4 | Peinado de mujer           |  80.00 |
+|  5 | Peinado de hombre          |  60.00 |
++----+----------------------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> UPDATE servicios SET precio = 70 WHERE id = 2;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM servicios;
++----+----------------------------+--------+
+| id | nombre                     | precio |
++----+----------------------------+--------+
+|  1 | Corte de cabello de Adulto |  80.00 |
+|  2 | Corte de cabello de Niño   |  70.00 |
+|  3 | Pintado de pelo            |  70.00 |
+|  4 | Peinado de mujer           |  80.00 |
+|  5 | Peinado de hombre          |  60.00 |
++----+----------------------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> UPDATE servicios SET nombre = "Nuevo corte de cabello de Niño " WHERE id = 2;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM servicios;
++----+---------------------------------+--------+
+| id | nombre                          | precio |
++----+---------------------------------+--------+
+|  1 | Corte de cabello de Adulto      |  80.00 |
+|  2 | Nuevo corte de cabello de Niño  |  70.00 |
+|  3 | Pintado de pelo                 |  70.00 |
+|  4 | Peinado de mujer                |  80.00 |
+|  5 | Peinado de hombre               |  60.00 |
++----+---------------------------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> UPDATE servicios SET nombre = "Corte de cabello militar", precio = 40 WHERE id = 2;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM servicios;
++----+----------------------------+--------+
+| id | nombre                     | precio |
++----+----------------------------+--------+
+|  1 | Corte de cabello de Adulto |  80.00 |
+|  2 | Corte de cabello militar   |  40.00 |
+|  3 | Pintado de pelo            |  70.00 |
+|  4 | Peinado de mujer           |  80.00 |
+|  5 | Peinado de hombre          |  60.00 |
++----+----------------------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> DELETE FROM servicios  WHERE id=1;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> DELETE FROM servicios  WHERE id=5;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> SELECT * FROM servicios;
++----+--------------------------+--------+
+| id | nombre                   | precio |
++----+--------------------------+--------+
+|  2 | Corte de cabello militar |  40.00 |
+|  3 | Pintado de pelo          |  70.00 |
+|  4 | Peinado de mujer         |  80.00 |
++----+--------------------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO servicios (nombre,precio) VALUES ("Corte de cabello adulto",90);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> SELECT * FROM servicios;
++----+--------------------------+--------+
+| id | nombre                   | precio |
++----+--------------------------+--------+
+|  2 | Corte de cabello militar |  40.00 |
+|  3 | Pintado de pelo          |  70.00 |
+|  4 | Peinado de mujer         |  80.00 |
+|  6 | Corte de cabello adulto  |  90.00 |
++----+--------------------------+--------+
+4 rows in set (0.00 sec)
+
+mysql> DESCRIBE servicios;
++--------+--------------+------+-----+---------+----------------+
+| Field  | Type         | Null | Key | Default | Extra          |
++--------+--------------+------+-----+---------+----------------+
+| id     | int          | NO   | PRI | NULL    | auto_increment |
+| nombre | varchar(60)  | NO   |     | NULL    |                |
+| precio | decimal(6,2) | NO   |     | NULL    |                |
++--------+--------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> ALTER TABLE servicios ADD descripcion VARCHAR(100) NOT NULL;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE servicios;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int          | NO   | PRI | NULL    | auto_increment |
+| nombre      | varchar(60)  | NO   |     | NULL    |                |
+| precio      | decimal(6,2) | NO   |     | NULL    |                |
+| descripcion | varchar(100) | NO   |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
+
+mysql> SELECT * FROM servicios;
++----+--------------------------+--------+-------------+
+| id | nombre                   | precio | descripcion |
++----+--------------------------+--------+-------------+
+|  2 | Corte de cabello militar |  40.00 |             |
+|  3 | Pintado de pelo          |  70.00 |             |
+|  4 | Peinado de mujer         |  80.00 |             |
+|  6 | Corte de cabello adulto  |  90.00 |             |
++----+--------------------------+--------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE servicios CHANGE descripcion nuevonombre INT(11) NOT NULL;
+ERROR 1366 (HY000): Incorrect integer value: '' for column 'nuevonombre' at row 1
+mysql> ALTER TABLE servicios CHANGE descripcion nuevonombre VARCHAR(11) NOT NULL;
+Query OK, 4 rows affected (0.07 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE servicios;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int          | NO   | PRI | NULL    | auto_increment |
+| nombre      | varchar(60)  | NO   |     | NULL    |                |
+| precio      | decimal(6,2) | NO   |     | NULL    |                |
+| nuevonombre | varchar(11)  | NO   |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql>  INSERT INTO servicios (nombre,precio,nuevonombre) VALUES ("Uñas", 120, "Info");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM servicios;
++----+--------------------------+--------+-------------+
+| id | nombre                   | precio | nuevonombre |
++----+--------------------------+--------+-------------+
+|  2 | Corte de cabello militar |  40.00 |             |
+|  3 | Pintado de pelo          |  70.00 |             |
+|  4 | Peinado de mujer         |  80.00 |             |
+|  6 | Corte de cabello adulto  |  90.00 |             |
+|  7 | Uñas                     | 120.00 | Info        |
++----+--------------------------+--------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> ALTER TABLE servicios CHANGE nuevonombre descripcion INT(11) NOT NULL;
+ERROR 1366 (HY000): Incorrect integer value: '' for column 'descripcion' at row 1
+mysql> ALTER TABLE servicios CHANGE nuevonombre descripcion VARCHAR(11) NOT NULL;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM servicios;
++----+--------------------------+--------+-------------+
+| id | nombre                   | precio | descripcion |
++----+--------------------------+--------+-------------+
+|  2 | Corte de cabello militar |  40.00 |             |
+|  3 | Pintado de pelo          |  70.00 |             |
+|  4 | Peinado de mujer         |  80.00 |             |
+|  6 | Corte de cabello adulto  |  90.00 |             |
+|  7 | Uñas                     | 120.00 | Info        |
++----+--------------------------+--------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> ALTER TABLE servicios DROP COLUMN descripcion;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM servicios;
++----+--------------------------+--------+
+| id | nombre                   | precio |
++----+--------------------------+--------+
+|  2 | Corte de cabello militar |  40.00 |
+|  3 | Pintado de pelo          |  70.00 |
+|  4 | Peinado de mujer         |  80.00 |
+|  6 | Corte de cabello adulto  |  90.00 |
+|  7 | Uñas                     | 120.00 |
++----+--------------------------+--------+
+5 rows in set (0.00 sec)
+
+mysql>
