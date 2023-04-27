@@ -392,4 +392,478 @@ mysql> SELECT * FROM servicios;
 +----+--------------------------+--------+
 5 rows in set (0.00 sec)
 
+
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_appsalon |
++--------------------+
+| servicios          |
++--------------------+
+1 row in set (0.02 sec)
+
+mysql> DROP TABLE servicios;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> SHOW TABLES;
+Empty set (0.02 sec)
+
+mysql> CREATE TABLE servicios (
+    -> id INT NOT NULL AUTO_INCREMENT,
+    -> nombre VARCHAR(60) NOT NULL,
+    -> precio DECIMAL(6,2) NOT NULL,
+    -> PRIMARY KEY (id)
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_appsalon |
++--------------------+
+| servicios          |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> DESCRIBE servicios;
++--------+--------------+------+-----+---------+----------------+
+| Field  | Type         | Null | Key | Default | Extra          |
++--------+--------------+------+-----+---------+----------------+
+| id     | int          | NO   | PRI | NULL    | auto_increment |
+| nombre | varchar(60)  | NO   |     | NULL    |                |
+| precio | decimal(6,2) | NO   |     | NULL    |                |
++--------+--------------+------+-----+---------+----------------+
+3 rows in set (0.02 sec)
+
+mysql> CREATE TABLE reservaciones(
+    -> id INT(11) NOT NULL AUTO_INCREMENT,
+    -> nombre VARCHAR(60) NOT NULL,
+    -> apellido VARCHAR(60) NOT NULL,
+    -> hora TIME DEFAULT NULL,
+    -> fecha DATE DEFAULT NULL,
+    -> servicios VARCHAR(255) NOT NULL,
+    -> PRIMARY KEY (id)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.04 sec)
+
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_appsalon |
++--------------------+
+| reservaciones      |
+| servicios          |
++--------------------+
+2 rows in set (0.00 sec)
+
+mysql> DESCRIBE reservaciones
+    -> ;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| id        | int          | NO   | PRI | NULL    | auto_increment |
+| nombre    | varchar(60)  | NO   |     | NULL    |                |
+| apellido  | varchar(60)  | NO   |     | NULL    |                |
+| hora      | time         | YES  |     | NULL    |                |
+| fecha     | date         | YES  |     | NULL    |                |
+| servicios | varchar(255) | NO   |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> INSERT INTO reservaciones (nombre, apellido, hora, fecha, servicios) VALUES
+    ->         ('Juan', 'De la torre', '10:30:00', '2021-06-28', 'Corte de Cabello Adulto, Corte de Barba' ),
+    ->         ('Antonio', 'Hernandez', '14:00:00', '2021-07-30', 'Corte de Cabello Niño'),
+    ->         ('Pedro', 'Juarez', '20:00:00', '2021-06-25', 'Corte de Cabello Adulto'),
+    ->         ('Mireya', 'Perez', '19:00:00', '2021-06-25', 'Peinado Mujer'),
+    ->         ('Jose', 'Castillo', '14:00:00', '2021-07-30', 'Peinado Hombre'),
+    ->         ('Maria', 'Diaz', '14:30:00', '2021-06-25', 'Tinte'),
+    ->         ('Clara', 'Duran', '10:00:00', '2021-07-01', 'Uñas, Tinte, Corte de Cabello Mujer'),
+    ->         ('Miriam', 'Ibañez', '09:00:00', '2021-07-01', 'Tinte'),
+    ->         ('Samuel', 'Reyes', '10:00:00', '2021-07-02', 'Tratamiento Capilar'),
+    ->         ('Joaquin', 'Muñoz', '19:00:00', '2021-06-28', 'Tratamiento Capilar'),
+    ->         ('Julia', 'Lopez', '08:00:00', '2021-06-25', 'Tinte'),
+    ->         ('Carmen', 'Ruiz', '20:00:00', '2021-07-01', 'Uñas'),
+    ->         ('Isaac', 'Sala', '09:00:00', '2021-07-30', 'Corte de Cabello Adulto'),
+    ->         ('Ana', 'Preciado', '14:30:00', '2021-06-28', 'Corte de Cabello Mujer'),
+    ->         ('Sergio', 'Iglesias', '10:00:00', '2021-07-02', 'Corte de Cabello Adulto'),
+    ->         ('Aina', 'Acosta', '14:00:00', '2021-07-30', 'Uñas'),
+    ->         ('Carlos', 'Ortiz', '20:00:00', '2021-06-25', 'Corte de Cabello Niño'),
+    ->         ('Roberto', 'Serrano', '10:00:00', '2021-07-30', 'Corte de Cabello Niño'),
+    ->         ('Carlota', 'Perez', '14:00:00', '2021-07-01', 'Uñas'),
+    ->         ('Ana Maria', 'Igleias', '14:00:00', '2021-07-02', 'Uñas, Tinte'),
+    ->         ('Jaime', 'Jimenez', '14:00:00', '2021-07-01', 'Corte de Cabello Niño'),
+    ->         ('Roberto', 'Torres', '10:00:00', '2021-07-02', 'Corte de Cabello Adulto'),
+    ->         ('Juan', 'Cano', '09:00:00', '2021-07-02', 'Corte de Cabello Niño'),
+    ->         ('Santiago', 'Hernandez', '19:00:00', '2021-06-28', 'Corte de Cabello Niño'),
+    ->         ('Berta', 'Gomez', '09:00:00', '2021-07-01', 'Uñas'),
+    ->         ('Miriam', 'Dominguez', '19:00:00', '2021-06-28', 'Corte de Cabello Niño'),
+    ->         ('Antonio', 'Castro', '14:30:00', '2021-07-02', 'Corte de Cabello Adulti'),
+    ->         ('Hugo', 'Alonso', '09:00:00', '2021-06-28', 'Corte de Barba'),
+    ->         ('Victoria', 'Perez', '10:00:00', '2021-07-02', 'Uñas, Tinte'),
+    ->         ('Jimena', 'Leon', '10:30:00', '2021-07-30', 'Uñas, Corte de Cabello Mujer'),
+    ->         ('Raquel' ,'Peña', '20:30:00', '2021-06-25', 'Corte de Cabello Mujer');
+Query OK, 31 rows affected (0.02 sec)
+Records: 31  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO servicios ( nombre, precio ) VALUES
+    ->         ('Corte de Cabello Niño', 60),
+    ->         ('Corte de Cabello Hombre', 80),
+    ->         ('Corte de Barba', 60),
+    ->         ('Peinado Mujer', 80),
+    ->         ('Peinado Hombre', 60),
+    ->         ('Tinte',300),
+    ->         ('Uñas', 400),
+    ->         ('Lavado de Cabello', 50),
+    ->         ('Tratamiento Capilar', 150);
+Query OK, 9 rows affected (0.02 sec)
+Records: 9  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM servicios;
++----+-------------------------+--------+
+| id | nombre                  | precio |
++----+-------------------------+--------+
+|  1 | Corte de Cabello Niño   |  60.00 |
+|  2 | Corte de Cabello Hombre |  80.00 |
+|  3 | Corte de Barba          |  60.00 |
+|  4 | Peinado Mujer           |  80.00 |
+|  5 | Peinado Hombre          |  60.00 |
+|  6 | Tinte                   | 300.00 |
+|  7 | Uñas                    | 400.00 |
+|  8 | Lavado de Cabello       |  50.00 |
+|  9 | Tratamiento Capilar     | 150.00 |
++----+-------------------------+--------+
+9 rows in set (0.02 sec)
+
+mysql> SELECT * FROM servicios WHERE precio > 90;
++----+---------------------+--------+
+| id | nombre              | precio |
++----+---------------------+--------+
+|  6 | Tinte               | 300.00 |
+|  7 | Uñas                | 400.00 |
+|  9 | Tratamiento Capilar | 150.00 |
++----+---------------------+--------+
+3 rows in set (0.02 sec)
+
+mysql> SELECT * FROM servicios WHERE precio > 80;
++----+---------------------+--------+
+| id | nombre              | precio |
++----+---------------------+--------+
+|  6 | Tinte               | 300.00 |
+|  7 | Uñas                | 400.00 |
+|  9 | Tratamiento Capilar | 150.00 |
++----+---------------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM servicios WHERE precio >= 80;
++----+-------------------------+--------+
+| id | nombre                  | precio |
++----+-------------------------+--------+
+|  2 | Corte de Cabello Hombre |  80.00 |
+|  4 | Peinado Mujer           |  80.00 |
+|  6 | Tinte                   | 300.00 |
+|  7 | Uñas                    | 400.00 |
+|  9 | Tratamiento Capilar     | 150.00 |
++----+-------------------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM servicios WHERE precio = 80;
++----+-------------------------+--------+
+| id | nombre                  | precio |
++----+-------------------------+--------+
+|  2 | Corte de Cabello Hombre |  80.00 |
+|  4 | Peinado Mujer           |  80.00 |
++----+-------------------------+--------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM servicios WHERE precio BETWEEN 100 AND 200;
++----+---------------------+--------+
+| id | nombre              | precio |
++----+---------------------+--------+
+|  9 | Tratamiento Capilar | 150.00 |
++----+---------------------+--------+
+1 row in set (0.02 sec)
+
+mysql> SELECT * FROM reservaciones;
++----+-----------+-------------+----------+------------+-----------------------------------------+
+| id | nombre    | apellido    | hora     | fecha      | servicios                               |
++----+-----------+-------------+----------+------------+-----------------------------------------+
+|  1 | Juan      | De la torre | 10:30:00 | 2021-06-28 | Corte de Cabello Adulto, Corte de Barba |
+|  2 | Antonio   | Hernandez   | 14:00:00 | 2021-07-30 | Corte de Cabello Niño                   |
+|  3 | Pedro     | Juarez      | 20:00:00 | 2021-06-25 | Corte de Cabello Adulto                 |
+|  4 | Mireya    | Perez       | 19:00:00 | 2021-06-25 | Peinado Mujer                           |
+|  5 | Jose      | Castillo    | 14:00:00 | 2021-07-30 | Peinado Hombre                          |
+|  6 | Maria     | Diaz        | 14:30:00 | 2021-06-25 | Tinte                                   |
+|  7 | Clara     | Duran       | 10:00:00 | 2021-07-01 | Uñas, Tinte, Corte de Cabello Mujer     |
+|  8 | Miriam    | Ibañez      | 09:00:00 | 2021-07-01 | Tinte                                   |
+|  9 | Samuel    | Reyes       | 10:00:00 | 2021-07-02 | Tratamiento Capilar                     |
+| 10 | Joaquin   | Muñoz       | 19:00:00 | 2021-06-28 | Tratamiento Capilar                     |
+| 11 | Julia     | Lopez       | 08:00:00 | 2021-06-25 | Tinte                                   |
+| 12 | Carmen    | Ruiz        | 20:00:00 | 2021-07-01 | Uñas                                    |
+| 13 | Isaac     | Sala        | 09:00:00 | 2021-07-30 | Corte de Cabello Adulto                 |
+| 14 | Ana       | Preciado    | 14:30:00 | 2021-06-28 | Corte de Cabello Mujer                  |
+| 15 | Sergio    | Iglesias    | 10:00:00 | 2021-07-02 | Corte de Cabello Adulto                 |
+| 16 | Aina      | Acosta      | 14:00:00 | 2021-07-30 | Uñas                                    |
+| 17 | Carlos    | Ortiz       | 20:00:00 | 2021-06-25 | Corte de Cabello Niño                   |
+| 18 | Roberto   | Serrano     | 10:00:00 | 2021-07-30 | Corte de Cabello Niño                   |
+| 19 | Carlota   | Perez       | 14:00:00 | 2021-07-01 | Uñas                                    |
+| 20 | Ana Maria | Igleias     | 14:00:00 | 2021-07-02 | Uñas, Tinte                             |
+| 21 | Jaime     | Jimenez     | 14:00:00 | 2021-07-01 | Corte de Cabello Niño                   |
+| 22 | Roberto   | Torres      | 10:00:00 | 2021-07-02 | Corte de Cabello Adulto                 |
+| 23 | Juan      | Cano        | 09:00:00 | 2021-07-02 | Corte de Cabello Niño                   |
+| 24 | Santiago  | Hernandez   | 19:00:00 | 2021-06-28 | Corte de Cabello Niño                   |
+| 25 | Berta     | Gomez       | 09:00:00 | 2021-07-01 | Uñas                                    |
+| 26 | Miriam    | Dominguez   | 19:00:00 | 2021-06-28 | Corte de Cabello Niño                   |
+| 27 | Antonio   | Castro      | 14:30:00 | 2021-07-02 | Corte de Cabello Adulti                 |
+| 28 | Hugo      | Alonso      | 09:00:00 | 2021-06-28 | Corte de Barba                          |
+| 29 | Victoria  | Perez       | 10:00:00 | 2021-07-02 | Uñas, Tinte                             |
+| 30 | Jimena    | Leon        | 10:30:00 | 2021-07-30 | Uñas, Corte de Cabello Mujer            |
+| 31 | Raquel    | Peña        | 20:30:00 | 2021-06-25 | Corte de Cabello Mujer                  |
++----+-----------+-------------+----------+------------+-----------------------------------------+
+31 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(id), fecha
+    -> FROM reservaciones
+    -> GROUP BY fecha
+    -> ORDER BY COUNT(id) DESC;
++-----------+------------+
+| COUNT(id) | fecha      |
++-----------+------------+
+|         7 | 2021-07-02 |
+|         6 | 2021-06-28 |
+|         6 | 2021-07-30 |
+|         6 | 2021-06-25 |
+|         6 | 2021-07-01 |
++-----------+------------+
+5 rows in set (0.02 sec)
+
+mysql> SELECT * FROM servicios;
++----+-------------------------+--------+
+| id | nombre                  | precio |
++----+-------------------------+--------+
+|  1 | Corte de Cabello Niño   |  60.00 |
+|  2 | Corte de Cabello Hombre |  80.00 |
+|  3 | Corte de Barba          |  60.00 |
+|  4 | Peinado Mujer           |  80.00 |
+|  5 | Peinado Hombre          |  60.00 |
+|  6 | Tinte                   | 300.00 |
+|  7 | Uñas                    | 400.00 |
+|  8 | Lavado de Cabello       |  50.00 |
+|  9 | Tratamiento Capilar     | 150.00 |
++----+-------------------------+--------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT SUM(precio) AS totalServicios FROM servicios;
++----------------+
+| totalServicios |
++----------------+
+|        1240.00 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MIN(precio) AS precioMenor FROM servicios;
++-------------+
+| precioMenor |
++-------------+
+|       50.00 |
++-------------+
+1 row in set (0.02 sec)
+
+mysql> SELECT * FROM servicios;
++----+-------------------------+--------+
+| id | nombre                  | precio |
++----+-------------------------+--------+
+|  1 | Corte de Cabello Niño   |  60.00 |
+|  2 | Corte de Cabello Hombre |  80.00 |
+|  3 | Corte de Barba          |  60.00 |
+|  4 | Peinado Mujer           |  80.00 |
+|  5 | Peinado Hombre          |  60.00 |
+|  6 | Tinte                   | 300.00 |
+|  7 | Uñas                    | 400.00 |
+|  8 | Lavado de Cabello       |  50.00 |
+|  9 | Tratamiento Capilar     | 150.00 |
++----+-------------------------+--------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT * FROM servicios WHERE nombre LIKE "Corte%";
++----+-------------------------+--------+
+| id | nombre                  | precio |
++----+-------------------------+--------+
+|  1 | Corte de Cabello Niño   |  60.00 |
+|  2 | Corte de Cabello Hombre |  80.00 |
+|  3 | Corte de Barba          |  60.00 |
++----+-------------------------+--------+
+3 rows in set (0.01 sec)
+
+mysql> SELECT * FROM servicios WHERE nombre LIKE "Peinado%";
++----+----------------+--------+
+| id | nombre         | precio |
++----+----------------+--------+
+|  4 | Peinado Mujer  |  80.00 |
+|  5 | Peinado Hombre |  60.00 |
++----+----------------+--------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM servicios WHERE nombre LIKE "%Peinado";
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM servicios WHERE nombre LIKE "%Mujer";
++----+---------------+--------+
+| id | nombre        | precio |
++----+---------------+--------+
+|  4 | Peinado Mujer |  80.00 |
++----+---------------+--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM servicios WHERE nombre LIKE "%de%";
++----+-------------------------+--------+
+| id | nombre                  | precio |
++----+-------------------------+--------+
+|  1 | Corte de Cabello Niño   |  60.00 |
+|  2 | Corte de Cabello Hombre |  80.00 |
+|  3 | Corte de Barba          |  60.00 |
+|  8 | Lavado de Cabello       |  50.00 |
++----+-------------------------+--------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM reservaciones
+    -> ;
++----+-----------+-------------+----------+------------+-----------------------------------------+
+| id | nombre    | apellido    | hora     | fecha      | servicios                               |
++----+-----------+-------------+----------+------------+-----------------------------------------+
+|  1 | Juan      | De la torre | 10:30:00 | 2021-06-28 | Corte de Cabello Adulto, Corte de Barba |
+|  2 | Antonio   | Hernandez   | 14:00:00 | 2021-07-30 | Corte de Cabello Niño                   |
+|  3 | Pedro     | Juarez      | 20:00:00 | 2021-06-25 | Corte de Cabello Adulto                 |
+|  4 | Mireya    | Perez       | 19:00:00 | 2021-06-25 | Peinado Mujer                           |
+|  5 | Jose      | Castillo    | 14:00:00 | 2021-07-30 | Peinado Hombre                          |
+|  6 | Maria     | Diaz        | 14:30:00 | 2021-06-25 | Tinte                                   |
+|  7 | Clara     | Duran       | 10:00:00 | 2021-07-01 | Uñas, Tinte, Corte de Cabello Mujer     |
+|  8 | Miriam    | Ibañez      | 09:00:00 | 2021-07-01 | Tinte                                   |
+|  9 | Samuel    | Reyes       | 10:00:00 | 2021-07-02 | Tratamiento Capilar                     |
+| 10 | Joaquin   | Muñoz       | 19:00:00 | 2021-06-28 | Tratamiento Capilar                     |
+| 11 | Julia     | Lopez       | 08:00:00 | 2021-06-25 | Tinte                                   |
+| 12 | Carmen    | Ruiz        | 20:00:00 | 2021-07-01 | Uñas                                    |
+| 13 | Isaac     | Sala        | 09:00:00 | 2021-07-30 | Corte de Cabello Adulto                 |
+| 14 | Ana       | Preciado    | 14:30:00 | 2021-06-28 | Corte de Cabello Mujer                  |
+| 15 | Sergio    | Iglesias    | 10:00:00 | 2021-07-02 | Corte de Cabello Adulto                 |
+| 16 | Aina      | Acosta      | 14:00:00 | 2021-07-30 | Uñas                                    |
+| 17 | Carlos    | Ortiz       | 20:00:00 | 2021-06-25 | Corte de Cabello Niño                   |
+| 18 | Roberto   | Serrano     | 10:00:00 | 2021-07-30 | Corte de Cabello Niño                   |
+| 19 | Carlota   | Perez       | 14:00:00 | 2021-07-01 | Uñas                                    |
+| 20 | Ana Maria | Igleias     | 14:00:00 | 2021-07-02 | Uñas, Tinte                             |
+| 21 | Jaime     | Jimenez     | 14:00:00 | 2021-07-01 | Corte de Cabello Niño                   |
+| 22 | Roberto   | Torres      | 10:00:00 | 2021-07-02 | Corte de Cabello Adulto                 |
+| 23 | Juan      | Cano        | 09:00:00 | 2021-07-02 | Corte de Cabello Niño                   |
+| 24 | Santiago  | Hernandez   | 19:00:00 | 2021-06-28 | Corte de Cabello Niño                   |
+| 25 | Berta     | Gomez       | 09:00:00 | 2021-07-01 | Uñas                                    |
+| 26 | Miriam    | Dominguez   | 19:00:00 | 2021-06-28 | Corte de Cabello Niño                   |
+| 27 | Antonio   | Castro      | 14:30:00 | 2021-07-02 | Corte de Cabello Adulti                 |
+| 28 | Hugo      | Alonso      | 09:00:00 | 2021-06-28 | Corte de Barba                          |
+| 29 | Victoria  | Perez       | 10:00:00 | 2021-07-02 | Uñas, Tinte                             |
+| 30 | Jimena    | Leon        | 10:30:00 | 2021-07-30 | Uñas, Corte de Cabello Mujer            |
+| 31 | Raquel    | Peña        | 20:30:00 | 2021-06-25 | Corte de Cabello Mujer                  |
++----+-----------+-------------+----------+------------+-----------------------------------------+
+31 rows in set (0.00 sec)
+
+mysql> SELECT CONCAT(nombre, " ", apellido) AS nombreCompleto FROM reservaciones;
++--------------------+
+| nombreCompleto     |
++--------------------+
+| Juan De la torre   |
+| Antonio Hernandez  |
+| Pedro Juarez       |
+| Mireya Perez       |
+| Jose Castillo      |
+| Maria Diaz         |
+| Clara Duran        |
+| Miriam Ibañez      |
+| Samuel Reyes       |
+| Joaquin Muñoz      |
+| Julia Lopez        |
+| Carmen Ruiz        |
+| Isaac Sala         |
+| Ana Preciado       |
+| Sergio Iglesias    |
+| Aina Acosta        |
+| Carlos Ortiz       |
+| Roberto Serrano    |
+| Carlota Perez      |
+| Ana Maria Igleias  |
+| Jaime Jimenez      |
+| Roberto Torres     |
+| Juan Cano          |
+| Santiago Hernandez |
+| Berta Gomez        |
+| Miriam Dominguez   |
+| Antonio Castro     |
+| Hugo Alonso        |
+| Victoria Perez     |
+| Jimena Leon        |
+| Raquel Peña        |
++--------------------+
+31 rows in set (0.00 sec)
+
+mysql> SELECT * FROM reservaciones
+    -> WHERE CONCAT(nombre, " ", apellido) LIKE "%Berta Gomez%";
++----+--------+----------+----------+------------+-----------+
+| id | nombre | apellido | hora     | fecha      | servicios |
++----+--------+----------+----------+------------+-----------+
+| 25 | Berta  | Gomez    | 09:00:00 | 2021-07-01 | Uñas      |
++----+--------+----------+----------+------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT hora, fecha, CONCAT(nombre, "", apellido) as NombreCompleto
+    -> FROM reservaciones
+    -> WHERE CONCAT(nombre, " ", apellido)
+    -> LIKE "%Berta Gomez%";
++----------+------------+----------------+
+| hora     | fecha      | NombreCompleto |
++----------+------------+----------------+
+| 09:00:00 | 2021-07-01 | BertaGomez     |
++----------+------------+----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM reservaciones WHERE id IN(1,3);
++----+--------+-------------+----------+------------+-----------------------------------------+
+| id | nombre | apellido    | hora     | fecha      | servicios                               |
++----+--------+-------------+----------+------------+-----------------------------------------+
+|  1 | Juan   | De la torre | 10:30:00 | 2021-06-28 | Corte de Cabello Adulto, Corte de Barba |
+|  3 | Pedro  | Juarez      | 20:00:00 | 2021-06-25 | Corte de Cabello Adulto                 |
++----+--------+-------------+----------+------------+-----------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM reservaciones WHERE fecha = "2021-06-28";
++----+----------+-------------+----------+------------+-----------------------------------------+
+| id | nombre   | apellido    | hora     | fecha      | servicios                               |
++----+----------+-------------+----------+------------+-----------------------------------------+
+|  1 | Juan     | De la torre | 10:30:00 | 2021-06-28 | Corte de Cabello Adulto, Corte de Barba |
+| 10 | Joaquin  | Muñoz       | 19:00:00 | 2021-06-28 | Tratamiento Capilar                     |
+| 14 | Ana      | Preciado    | 14:30:00 | 2021-06-28 | Corte de Cabello Mujer                  |
+| 24 | Santiago | Hernandez   | 19:00:00 | 2021-06-28 | Corte de Cabello Niño                   |
+| 26 | Miriam   | Dominguez   | 19:00:00 | 2021-06-28 | Corte de Cabello Niño                   |
+| 28 | Hugo     | Alonso      | 09:00:00 | 2021-06-28 | Corte de Barba                          |
++----+----------+-------------+----------+------------+-----------------------------------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM reservaciones WHERE fecha = "2021-06-28" AND nombre = "Ana";
++----+--------+----------+----------+------------+------------------------+
+| id | nombre | apellido | hora     | fecha      | servicios              |
++----+--------+----------+----------+------------+------------------------+
+| 14 | Ana    | Preciado | 14:30:00 | 2021-06-28 | Corte de Cabello Mujer |
++----+--------+----------+----------+------------+------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM reservaciones WHERE fecha = "2021-06-28" AND id IN(1,3);
++----+--------+-------------+----------+------------+-----------------------------------------+
+| id | nombre | apellido    | hora     | fecha      | servicios                               |
++----+--------+-------------+----------+------------+-----------------------------------------+
+|  1 | Juan   | De la torre | 10:30:00 | 2021-06-28 | Corte de Cabello Adulto, Corte de Barba |
++----+--------+-------------+----------+------------+-----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM reservaciones WHERE fecha = "2021-06-28" AND id IN(1,10);
++----+---------+-------------+----------+------------+-----------------------------------------+
+| id | nombre  | apellido    | hora     | fecha      | servicios                               |
++----+---------+-------------+----------+------------+-----------------------------------------+
+|  1 | Juan    | De la torre | 10:30:00 | 2021-06-28 | Corte de Cabello Adulto, Corte de Barba |
+| 10 | Joaquin | Muñoz       | 19:00:00 | 2021-06-28 | Tratamiento Capilar                     |
++----+---------+-------------+----------+------------+-----------------------------------------+
+2 rows in set (0.00 sec)
+
 mysql>
