@@ -1,0 +1,20 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+@include mxn.tablet{
+    .iconos-nosotros{
+        @include mxn.grid(3,2rem);
+    }
+}
+
+.icono{
+    text-align: center;
+
+    img{
+        height: 10rem;
+    }
+
+    h1{
+        text-transform: uppercase;
+    }
+}

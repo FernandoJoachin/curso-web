@@ -1,0 +1,15 @@
+@use "base/variables" as vr;
+
+.footer{
+    background-color: vr.$grisOscuro;
+    padding: 2.5rem 0;
+
+    .contenido-footer{
+        padding-top: 2.5rem;
+    }
+    
+    .copyright{
+        color: vr.$blanco;
+        text-align: center;
+    }
+}
