@@ -20,6 +20,8 @@ function obtenerServicios() : array {
         return $servicios;
 
     }catch(\Throwable $th){
-        var_dump($th);
+        header('Content-Type: application/json');
+        echo json_encode($th);
+        exit;
     }
 }

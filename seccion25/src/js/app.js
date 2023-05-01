@@ -91,7 +91,7 @@ function cambiarSeccion() {
 
 async function mostrarServicios() {
     try {
-        const url = "http://localhost:3000/servicios.php"
+        const url = "./servicios.php"
         const resultado = await fetch(url);
         const db = await resultado.json();
         //const {servicios} = db;
