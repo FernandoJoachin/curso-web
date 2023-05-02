@@ -7,9 +7,13 @@
     }
 }
 
-.contenido-nosotros blockquote{
+.texto-nosotros blockquote{
     font-weight: vr.$black;
     font-size: 2.2rem;
-    margin: 0;
+    margin: 3rem 0 0 0;
     padding-left: 1rem 0 3rem 0;
+
+    @include mxn.tablet{
+        margin: 0;
+    }
 }
