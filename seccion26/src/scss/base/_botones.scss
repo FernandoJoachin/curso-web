@@ -1,0 +1,14 @@
+@use "variables" as vr;
+@use "base/mixins" as mxn;
+
+.boton-amarillo{
+    @include mxn.boton(vr.$amarillo,inline-block);
+}
+
+.boton-amarillo-block{
+    @include mxn.boton(vr.$amarillo,block);
+}
+
+.boton-verde{
+    @include mxn.boton(vr.$verde,inline-block);
+}
