@@ -2,7 +2,7 @@
 .dark-mode{
     background-color: darken(vr.$grisOscuro, 10);
 
-    p{
+    p, th, td{
         color: vr.$blanco;
     }
 

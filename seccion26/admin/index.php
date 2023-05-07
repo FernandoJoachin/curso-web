@@ -1,4 +1,9 @@
 <?php
+    require "../includes/funciones.php";
+    $auth = estaAutenticado();
+    if(!$auth){
+        header("Location: ./");
+    } 
     //Importar la conexion
     require "../includes/config/database.php";
     $db = conectarDB();
@@ -29,14 +34,13 @@
             $resultado = mysqli_query($db,$query);
 
             if($resultado) {
-                header("Location: /admin?resultado=3");
+                header("Location: ./admin?resultado=3");
             }
         }
     }
 
     //Incluye un template
-    require "../includes/funciones.php";
-    incluirTemplate("header");
+    incluirTemplate('header', false, true, "./");
 ?>
     <main class="contenedor seccion">
         <h1>Administrador de bienes raices</h1>
@@ -48,7 +52,7 @@
             <p class="alerta exito">Anuncio eliminado correctamente</p>
         <?php }; ?>
 
-        <a href="/admin/propiedades/crear.php" class="boton boton-amarillo">Ir a Crear</a>
+        <a href="./admin/propiedades/crear.php" class="boton boton-amarillo">Ir a Crear</a>
 
         <table class="propiedades">
             <thead>
@@ -65,10 +69,10 @@
                 <tr>
                     <td><?php echo $propiedades["id"]; ?></td>
                     <td><?php echo $propiedades["titulo"]; ?></td>
-                    <td><img class="img-tabla" src="/imagenes/<?php echo $propiedades["imagen"]; ?>" alt="imagen"></td>
+                    <td><img class="img-tabla" src="./imagenes/<?php echo $propiedades["imagen"]; ?>" alt="imagen"></td>
                     <td>$<?php echo $propiedades["precio"]; ?></td>
                     <td>
-                        <a class="boton-amarillo-block" href="/admin/propiedades/actualizar.php?id=<?php echo $propiedades["id"]; ?>">Actualizar</a>
+                        <a class="boton-amarillo-block" href="./admin/propiedades/actualizar.php?id=<?php echo $propiedades["id"]; ?>">Actualizar</a>
                         <form class="w-100" method="POST">
                             <input type="hidden" name="id" value="<?php echo $propiedades["id"]; ?>">
                             <input type="submit" class="boton-rojo-block w-100" value="Eliminar" >
@@ -82,5 +86,5 @@
 <?php
     //Cerrar la conexion
     mysqli_close($db);
-    incluirTemplate("footer");
+    incluirTemplate("footer", false, true, "./");
 ?>
