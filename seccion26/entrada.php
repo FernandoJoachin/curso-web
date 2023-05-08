@@ -1,6 +1,6 @@
 <?php
     require "includes/funciones.php";
-    incluirTemplate("header", false, true, ".");
+    incluirTemplate("header");
 ?>
     <main class="contenedor seccion contenido-centrado">
         <h1>Guía para la decoración de tu hogar</h1>
@@ -24,5 +24,5 @@
         </div>
     </main>
 <?php
-    incluirTemplate("footer", false, true, ".");
+    incluirTemplate("footer");
 ?>

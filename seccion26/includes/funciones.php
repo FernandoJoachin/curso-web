@@ -1,6 +1,6 @@
 <?php
 require "app.php";
-function incluirTemplate(string $nombre, bool $inicio = false, bool $archivoExterno = false, string $ruta = ""){
+function incluirTemplate(string $nombre, bool $inicio = false){
     include TEMPLATES_URL . "/{$nombre}.php";
 }
 

@@ -1,6 +1,6 @@
 <?php
     require "includes/funciones.php";
-    incluirTemplate("header", false, true, ".");
+    incluirTemplate("header");
 
     $id = $_GET["id"];
     $id = filter_var($id, FILTER_VALIDATE_INT);
@@ -15,14 +15,14 @@
     $resultado = mysqli_query($db,$query);
 
     if(!$resultado->num_rows){
-        header("Location: ./");
+        header("Location: /");
     }
 
     $propiedad = mysqli_fetch_assoc($resultado);
 ?>
     <main class="contenedor seccion contenido-centrado">
         <h1><?php echo $propiedad["titulo"]; ?></h1>
-        <img loading="lazy" src="./imagenes/<?php echo $propiedad["imagen"]; ?>" alt="<?php echo $propiedad["titulo"]; ?>">
+        <img loading="lazy" src="/imagenes/<?php echo $propiedad["imagen"]; ?>" alt="<?php echo $propiedad["titulo"]; ?>">
         <div class="resumen-propiedad anuncio">
             <p class="precio">$<?php echo $propiedad["precio"]; ?></p>
             <ul class="iconos-caracteristicas">
@@ -43,5 +43,5 @@
         </div>
     </main>
 <?php
-    incluirTemplate("footer", false, true, ".");
+    incluirTemplate("footer");
 ?>

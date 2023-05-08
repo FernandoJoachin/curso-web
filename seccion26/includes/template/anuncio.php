@@ -9,7 +9,7 @@
 <div class="contenedor-anuncios">
     <?php while($propiedad = mysqli_fetch_assoc($resultado)){ ?>
         <div class="anuncio">
-            <img loading="lazy" src="./imagenes/<?php echo $propiedad["imagen"]; ?>" alt="<?php echo $propiedad["titulo"]; ?>">
+            <img loading="lazy" src="/imagenes/<?php echo $propiedad["imagen"]; ?>" alt="<?php echo $propiedad["titulo"]; ?>">
             <div class="contenido-anuncio">
                 <h3><?php echo $propiedad["titulo"]; ?></h3>
                 <p><?php echo $propiedad["descripcion"]; ?></p>

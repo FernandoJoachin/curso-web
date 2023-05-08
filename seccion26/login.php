@@ -32,7 +32,7 @@
                     $_SESSION["usuario"] = $usuario["email"];
                     $_SESSION["login"] = true;
 
-                    header("Location: ./admin");
+                    header("Location: /admin");
                 }else{
                     $errores[] = "El password es incorrecto";
                 }
@@ -44,7 +44,7 @@
 
     //Incluir el header
     require "includes/funciones.php";
-    incluirTemplate("header", false, true, ".");
+    incluirTemplate("header");
 ?>
     <main class="contenedor seccion contenido-centrado">
         <h1>Iniciar sesion</h1>
@@ -68,5 +68,5 @@
         </form>
     </main>
 <?php
-    incluirTemplate("footer", false, true, ".");
+    incluirTemplate("footer");
 ?>

@@ -1,6 +1,6 @@
 <?php
     require "includes/funciones.php";
-    incluirTemplate("header", false, true, ".");
+    incluirTemplate("header");
 ?>
     <main class="contenedor seccion">
         <h1>Casas y Departamentos en Venta</h1>
@@ -10,5 +10,5 @@
         ?>
     </main>
 <?php
-    incluirTemplate("footer", false, true, ".");
+    incluirTemplate("footer");
 ?>

@@ -1,6 +1,6 @@
 <?php
     require "includes/funciones.php";
-    incluirTemplate("header", false, true, ".");
+    incluirTemplate("header");
 ?>
     <main class="contenedor seccion contenido-centrado">
         <h1>Nuestro blog</h1>
@@ -91,5 +91,5 @@
         </article>
     </main>
 <?php
-    incluirTemplate("footer", false, true, ".");
+    incluirTemplate("footer");
 ?>

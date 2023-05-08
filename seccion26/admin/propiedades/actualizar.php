@@ -2,14 +2,14 @@
     require "../../includes/funciones.php";
     $auth = estaAutenticado();
     if(!$auth){
-        header("Location: ../../");
+        header("Location: /");
     } 
 
     //Validar la URL por un ID válido
     $id = $_GET["id"];
     $id = filter_var($id, FILTER_VALIDATE_INT);
     if(!$id) {
-        header("Location: ./admin");
+        header("Location: /admin");
     }
 
 
@@ -125,12 +125,12 @@
             $resultado = mysqli_query($db,$query);
             if($resultado){
                 //Redireccionar al usuario;
-                header("Location: ../../admin?resultado=2");
+                header("Location: /admin?resultado=2");
             }
         }
     }
 
-    incluirTemplate("header", false, true, "../../");
+    incluirTemplate("header");
 ?>
     <main class="contenedor seccion">
         <h1>Actualizar Propiedad</h1>
@@ -151,7 +151,7 @@
 
                 <label for="img">Imagen:</label>
                 <input type="file" id="img" name="img" accept="image/jpeg, image/png">
-                <img src="../../imagenes/<?php echo $imgPropiedad; ?>" class="img-small">
+                <img src="/imagenes/<?php echo $imgPropiedad; ?>" class="img-small">
 
                 <label for="descripcion">Descripcion</label>
                 <textarea id="descripcion" name="descripcion" cols="30" rows="10"><?php echo $descripcion; ?></textarea>
@@ -184,9 +184,9 @@
 
             <input type="submit" value="Actualizar Propiedad" class="boton boton-verde">
         </form>
-        <a href="../../admin" class="boton boton-amarillo">Volver</a>
+        <a href="/admin" class="boton boton-amarillo">Volver</a>
         
     </main>
 <?php
-    incluirTemplate("footer", false, true, "../../");
+    incluirTemplate("footer");
 ?>

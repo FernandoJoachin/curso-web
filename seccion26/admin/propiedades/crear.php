@@ -2,7 +2,7 @@
     require "../../includes/funciones.php";
     $auth = estaAutenticado();
     if(!$auth){
-        header("Location: ../../");
+        header("Location: /");
     } 
 
     require "../../includes/config/database.php";
@@ -103,12 +103,12 @@
             $resultado = mysqli_query($db,$query);
             if($resultado){
                 //Redireccionar al usuario;
-                header("Location: ../../admin?resultado=1");
+                header("Location: /admin?resultado=1");
             }
         }
     }
 
-    incluirTemplate("header", false, true, "../../");
+    incluirTemplate("header");
 ?>
     <main class="contenedor seccion">
         <h1>Crear</h1>
@@ -118,7 +118,7 @@
             <?php echo $error;?>
         </div>
         <?php endforeach?>
-        <form class="formulario" method="POST" action="./crear.php" enctype="multipart/form-data">
+        <form class="formulario" method="POST" action="/admin/propiedades/crear.php" enctype="multipart/form-data">
             <fieldset>
                 <legend>Información General</legend>
                 <label for="titulo">Titulo:</label>
@@ -161,9 +161,9 @@
 
             <input type="submit" value="Crear Propiedad" class="boton boton-verde">
         </form>
-        <a href="../../admin" class="boton boton-amarillo">Volver</a>
+        <a href="/admin" class="boton boton-amarillo">Volver</a>
         
     </main>
 <?php
-    incluirTemplate("footer", false, true, "../../");
+    incluirTemplate("footer");
 ?>
