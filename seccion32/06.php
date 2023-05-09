@@ -8,7 +8,7 @@ interface TransporteInterfaz {
     public function getRuedas() : int;
 }
 
-abstract class Transporte implements TransporteInterfaz{
+class Transporte implements TransporteInterfaz{
     public function __construct(protected int $ruedas, protected int $capacidad){
 
     }
