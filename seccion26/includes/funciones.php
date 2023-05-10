@@ -1,14 +1,22 @@
 <?php
-require "app.php";
+define("TEMPLATES_URL", __DIR__ ."/template");
+define("FUNCIONES_URL", __DIR__ . "funciones.php");
+define("CARPETA_IMG", __DIR__ . "/../imagenes/");
 function incluirTemplate(string $nombre, bool $inicio = false){
     include TEMPLATES_URL . "/{$nombre}.php";
 }
 
-function estaAutenticado() : bool {
+function estaAutenticado() : void {
     session_start();
-    $auth = $_SESSION["login"];
-    if($auth){
-        return true;
+
+    if(!$_SESSION["login"]){
+        header("Location: /");
     }
-    return false;
+}
+
+function debuguear($debug){
+    echo "<pre>";
+    var_dump($debug);
+    echo "</pre>";
+    exit;
 }

@@ -1,6 +1,6 @@
 <?php
 //Importar la base de datos
-require "includes/config/database.php";
+require "includes/app.php";
 $db = conectarDB();
 //Crear email y password
 $email = "correo@correo.com";

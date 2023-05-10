@@ -1,0 +1,19 @@
+{
+    "name": "lenovo/seccion26",
+    "description": "Creando un proyecto de POO",
+    "type": "project",
+    "authors": [
+        {
+            "name": "FernandoJoachin",
+            "email": "97647369+FernandoJoachin@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "intervention/image": "^2.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\" : "./classes"
+        }
+    }
+}
