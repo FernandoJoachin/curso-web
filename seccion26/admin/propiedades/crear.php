@@ -1,4 +1,10 @@
 <?php
+    require "../../includes/funciones.php";
+    $auth = estaAutenticado();
+    if(!$auth){
+        header("Location: /");
+    } 
+
     require "../../includes/config/database.php";
     $db = conectarDB();
 
@@ -19,7 +25,6 @@
 
     //Ejecutar el código después de que el usuario envia el formulario
     if($_SERVER["REQUEST_METHOD"] === "POST"){
-
         // //Ejemplo de sanizitar y validar
         // $valor1 = "correo@correo.com";
         // $valor2 = "hola";
@@ -37,6 +42,8 @@
         $estacionamiento = mysqli_real_escape_string($db, $_POST["estacionamiento"]);
         $vendedorID = mysqli_real_escape_string($db, $_POST["vendedor"]);
         $creado = date("Y/m/d");
+        //Asignar un archivo a una variable
+        $img = $_FILES["img"];
 
         if(!$titulo) {
             $errores[] = "Debes añadir un titulo";
@@ -66,31 +73,52 @@
             $errores[] = 'Elige un vendedor';
         }
 
+        if(!$img["name"] || $img["error"] ){
+            $errores[] = "La imagen es obligatoria";
+        }
+
+        // Validar por tamaño (1mb máximo)
+        $medida = 1000 * 1000;
+        if($img["size"] > $medida ) {
+            $errores[] = "La imagen es muy pesada";
+        }
+
 
         //Insertar en la base de datos
         if(empty($errores)){
-            $query = "INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, creado, vendedores_id) 
-            VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado', '$vendedorID')";
+            /*Subida de archvios */
+            //Crear carpeta
+            $carpetaImg = "../../imagenes/";
+            if(!is_dir($carpetaImg)){
+                mkdir($carpetaImg);
+            }
+            //Generar un nombre único
+            $nombreImg = md5(uniqid(rand(), true)) . ".jpg";
+            //Subir la imagen
+            move_uploaded_file($img["tmp_name"], $carpetaImg . $nombreImg);
+
+            $query = "INSERT INTO propiedades (titulo, precio, imagen, descripcion, habitaciones, wc, estacionamiento, creado, vendedores_id) 
+            VALUES ('$titulo', '$precio', '$nombreImg', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado', '$vendedorID')";
     
             $resultado = mysqli_query($db,$query);
             if($resultado){
                 //Redireccionar al usuario;
-                header("Location: /admin");
+                header("Location: /admin?resultado=1");
             }
         }
     }
 
-    require "../../includes/funciones.php";
     incluirTemplate("header");
 ?>
     <main class="contenedor seccion">
         <h1>Crear</h1>
+        
         <?php foreach($errores as $error): ?>
         <div class="alerta error">
             <?php echo $error;?>
         </div>
         <?php endforeach?>
-        <form class="formulario" method="POST" action="/admin/propiedades/crear.php">
+        <form class="formulario" method="POST" action="/admin/propiedades/crear.php" enctype="multipart/form-data">
             <fieldset>
                 <legend>Información General</legend>
                 <label for="titulo">Titulo:</label>
@@ -100,10 +128,10 @@
                 <input type="number" id="precio" name="precio" placeholder="Precio de la propiedad" value="<?php echo $precio; ?>">
 
                 <label for="img">Imagen:</label>
-                <input type="file" id="img" accept="image/jpeg, image/png">
+                <input type="file" id="img" name="img" accept="image/jpeg, image/png">
 
                 <label for="descripcion">Descripcion</label>
-                <textarea id="descripcion" name="descripcion" cols="30" rows="10"><?php echo $precio; ?></textarea>
+                <textarea id="descripcion" name="descripcion" cols="30" rows="10"><?php echo $descripcion; ?></textarea>
             </fieldset>
 
             <fieldset>
@@ -133,7 +161,7 @@
 
             <input type="submit" value="Crear Propiedad" class="boton boton-verde">
         </form>
-        <a href="/admin/index.php" class="boton boton-amarillo">Volver</a>
+        <a href="/admin" class="boton boton-amarillo">Volver</a>
         
     </main>
 <?php

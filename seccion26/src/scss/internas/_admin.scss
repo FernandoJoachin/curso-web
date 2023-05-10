@@ -11,4 +11,31 @@
     &.error{
         background-color: vr.$rojo;
     }
+
+    &.exito{
+        background-color: vr.$verde;
+    }
+}
+
+table.propiedades{
+    margin-top: 4rem;
+    width: 100%;
+    border-spacing: 0;
+
+    thead{
+        background-color: vr.$verde;
+
+        th{
+            color: vr.$blanco;
+            padding: 2rem;
+        }
+    }
+
+    .img-tabla{
+        width: 15rem;
+    }
+}
+
+.img-small{
+    width: 15rem;
 }
