@@ -1,11 +1,11 @@
 <?php
-    require "includes/funciones.php";
+    require "includes/app.php";
     incluirTemplate("header");
 ?>
     <main class="contenedor seccion contenido-centrado">
         <h1>Guía para la decoración de tu hogar</h1>
         <picture>
-            <source srcset="build/img/blog2.webp" type="image/webp">
+            <source srcset="/build/img/blog2.webp" type="image/webp">
             <img loading="lazy" width="200" height="300" src="build/img/blog2.jpg" alt="Imagen de la propiedad">
         </picture>
         <div class="resumen-blog">

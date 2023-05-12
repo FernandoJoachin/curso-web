@@ -1,11 +1,11 @@
 <?php
-    require "includes/funciones.php";
+    require "includes/app.php";
     incluirTemplate("header");
 ?>
     <main class="contenedor seccion contenido-centrado">
         <h1>Contacto</h1>
         <picture>
-            <source srcset="build/img/destacada3.webp" type="image/webp">
+            <source srcset="/build/img/destacada3.webp" type="image/webp">
             <img loading="lazy" width="200" height="300" src="build/img/destacada3.jpg" alt="Imagen Contacto">
         </picture>
         <h2>Llene el formulario de contacto</h2>

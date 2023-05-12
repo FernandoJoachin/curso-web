@@ -1,24 +1,24 @@
 <?php
-    require "includes/funciones.php";
+    require "includes/app.php";
     incluirTemplate("header", true);
 ?>
     <main class="contenedor seccion">
         <h1>Más Sobre Nosotros</h1>
         <div class="iconos-nosotros">
             <div class="icono">
-                <img src="build/img/icono1.svg" alt="Icono Seguridad" loading="lazy">
+                <img src="/build/img/icono1.svg" alt="Icono Seguridad" loading="lazy">
                 <h3>Seguridad</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus blanditiis officia reiciendis quos, dolores nostrum perspiciatis vitae! Incidunt iste iure nihil. 
                 Distinctio repellat eos officia esse totam mollitia inventore quibusdam.</p>
             </div>
             <div class="icono">
-                <img src="build/img/icono2.svg" alt="Icono Precio" loading="lazy">
+                <img src="/build/img/icono2.svg" alt="Icono Precio" loading="lazy">
                 <h3>Precio</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus blanditiis officia reiciendis quos, dolores nostrum perspiciatis vitae! Incidunt iste iure nihil. 
                 Distinctio repellat eos officia esse totam mollitia inventore quibusdam.</p>
             </div>
             <div class="icono">
-                <img src="build/img/icono3.svg" alt="Icono Tiempo" loading="lazy">
+                <img src="/build/img/icono3.svg" alt="Icono Tiempo" loading="lazy">
                 <h3>A Tiempo</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus blanditiis officia reiciendis quos, dolores nostrum perspiciatis vitae! Incidunt iste iure nihil. 
                 Distinctio repellat eos officia esse totam mollitia inventore quibusdam.</p>
@@ -51,8 +51,8 @@
             <article class="entrada-blog">
                 <div class="img">
                     <picture>
-                        <source srcset="build/img/blog1.webp" type="image/webp">
-                        <img loading="lazy" src="build/img/blog1.jpg" alt="Imagen Entrada de Blog">
+                        <source srcset="/build/img/blog1.webp" type="image/webp">
+                        <img loading="lazy" src="/build/img/blog1.jpg" alt="Imagen Entrada de Blog">
                     </picture>
                 </div>
                 <div class="texto-entrada">
@@ -72,7 +72,7 @@
             <article class="entrada-blog">
                 <div class="img">
                     <picture>
-                        <source srcset="build/img/blog2.webp" type="image/webp">
+                        <source srcset="/build/img/blog2.webp" type="image/webp">
                         <img loading="lazy" src="build/img/blog2.jpg" alt="Imagen Entrada de Blog">
                     </picture>
                 </div>
