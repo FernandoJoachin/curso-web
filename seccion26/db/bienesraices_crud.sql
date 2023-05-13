@@ -36,7 +36,7 @@ CREATE TABLE `propiedades` (
   PRIMARY KEY (`id`),
   KEY `fk_propiedades_vendedores_idx` (`vendedores_id`),
   CONSTRAINT `fk_propiedades_vendedores` FOREIGN KEY (`vendedores_id`) REFERENCES `vendedores` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `propiedades` (
 
 LOCK TABLES `propiedades` WRITE;
 /*!40000 ALTER TABLE `propiedades` DISABLE KEYS */;
-INSERT INTO `propiedades` VALUES (3,'Casa en el bosque',10000.00,'7edbe4a889911e3ae191aa0cdd4481d9.jpg','Casa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playa',5,5,5,'2023-05-04',1),(7,'Cabaña en el bosque',1500000.00,'6b94ab4acb1559c312685ac50780233a.jpg','Casa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playa',3,3,3,'2023-05-04',1),(8,'Casa de la playa',120.00,'f63baaeccd5d1eb0e3c648603b97911c.jpg','Casa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playa',3,2,1,'2023-05-06',1),(9,'Cabaña en el bosque',120000.00,'d5e855d5dfbef5e6b70fe7de4a5ddc11.jpg','Cabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosque',3,3,3,'2023-05-06',1),(10,'Casa normal',450000.00,'530fad86989a81a5d091ada36e9529ae.jpg','Casa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playa',3,3,3,'2023-05-06',2),(11,'Casa elegante',500000.00,'3ca6a1a685b20595fca6acb5226223ae.jpg','Casa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playa',3,3,3,'2023-05-06',2),(22,'Hermosa casa en la playa',100.00,'6ace2b8827ba61266e5dcd06e2a75801.jpg','Hermosa casa en la playaHermosa casa en la playaHermosa casa en la playaHermosa casa en la playaHermosa casa en la playa',2,2,5,'2023-05-10',1),(23,'Casa vendedor',100000.00,'11a251813b2d046487d1a614f933c81d.jpg','Casa vendedorCasa vendedorCasa vendedorCasa vendedorCasa vendedor',1,2,5,'2023-05-12',1);
+INSERT INTO `propiedades` VALUES (3,'Casa en el bosque',10000.00,'7edbe4a889911e3ae191aa0cdd4481d9.jpg','Casa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playa',5,5,5,'2023-05-04',1),(7,'Cabaña en el bosque',1500000.00,'6b94ab4acb1559c312685ac50780233a.jpg','Casa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playa',3,3,3,'2023-05-04',1),(8,'Casa de la playa',120.00,'f63baaeccd5d1eb0e3c648603b97911c.jpg','Casa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playa',3,2,1,'2023-05-06',1),(9,'Cabaña en el bosque',120000.00,'d5e855d5dfbef5e6b70fe7de4a5ddc11.jpg','Cabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosqueCabaña en el bosque',3,3,3,'2023-05-06',1),(10,'Casa normal',450000.00,'530fad86989a81a5d091ada36e9529ae.jpg','Casa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playa',3,3,3,'2023-05-06',2),(11,'Casa elegante',500000.00,'3ca6a1a685b20595fca6acb5226223ae.jpg','Casa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playaCasa de la playa',3,3,3,'2023-05-06',2),(22,'Hermosa casa en la playa',100.00,'6ace2b8827ba61266e5dcd06e2a75801.jpg','Hermosa casa en la playaHermosa casa en la playaHermosa casa en la playaHermosa casa en la playaHermosa casa en la playa',2,2,5,'2023-05-10',1),(29,'Casa de la montaña',2.00,'b3a1539fd3988c2240a52f72a2995ae5.jpg','Casa prueba(ActuSQLCasa prueba(ActuSQLCasa prueba(ActuSQLCasa prueba(ActuSQLCasa prueba(ActuSQL',1,1,1,'2023-05-13',1);
 /*!40000 ALTER TABLE `propiedades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,12 +82,12 @@ DROP TABLE IF EXISTS `vendedores`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `vendedores` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   `apellido` varchar(45) DEFAULT NULL,
   `telefono` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `vendedores` (
 
 LOCK TABLES `vendedores` WRITE;
 /*!40000 ALTER TABLE `vendedores` DISABLE KEYS */;
-INSERT INTO `vendedores` VALUES (1,'Fernando','Joachin','9995683452'),(2,'Roberto','Castillo','9993459761');
+INSERT INTO `vendedores` VALUES (1,'Fernando','Joachin','9995683452'),(2,'Roberto','Castillo','9993459761'),(4,'Franco','Gonzalez','9998697542');
 /*!40000 ALTER TABLE `vendedores` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -109,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-12  3:17:03
+-- Dump completed on 2023-05-13  4:26:49
