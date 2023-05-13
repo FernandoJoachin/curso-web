@@ -4,13 +4,7 @@
     use Intervention\Image\ImageManagerStatic as Image;
     $propiedad = new Propiedad();
     
-
     estaAutenticado();
-    // if(!$auth){
-    //     header("Location: /");
-    // } 
-
-    $db = conectarDB();
 
     // Consultar para obtener los vendedores
     $consulta = "SELECT * FROM vendedores";
@@ -19,13 +13,6 @@
     //Arreglo con mensajes de errores
     $errores = Propiedad::getErrores();
 
-    $titulo = "";
-    $precio = "";
-    $descripcion = "";
-    $habitaciones = "";
-    $wc = "";
-    $estacionamiento = "";
-    $vendedorID = "";
     //Ejecutar el código después de que el usuario envia el formulario
     if($_SERVER["REQUEST_METHOD"] === "POST"){
         // //Ejemplo de sanizitar y validar
@@ -39,18 +26,18 @@
 
         /**Sanitizar con mysql
          *  $titulo = mysqli_real_escape_string($db,$_POST["titulo"]);
-         */
+        */
 
         //Crea una nueva instancia
-        $propiedad = new  Propiedad($_POST);
+        $propiedad = new  Propiedad($_POST["propiedad"]);
 
         /*Subida de archvios */
         //Generar un nombre único
         $nombreImg = md5(uniqid(rand(), true)) . ".jpg";
 
         //Realiza un resize a la imagen con Intervention - Código sacado de Intervention
-        if($_FILES["img"]["tmp_name"]){
-            $img = Image::make($_FILES["img"]["tmp_name"])->fit(800, 600);
+        if($_FILES["propiedad"]["tmp_name"]["img"]){
+            $img = Image::make($_FILES["propiedad"]["tmp_name"]["img"])->fit(800, 600);
             $propiedad->setImagen($nombreImg);
         }
 
@@ -72,12 +59,7 @@
             $img->save(CARPETA_IMG . $nombreImg);
 
             //Guardar en la DB
-            $resultado = $propiedad->crear();
-
-            if($resultado){
-                //Redireccionar al usuario;
-                header("Location: /admin?resultado=1");
-            }
+            $propiedad->guardar();
         }
     }
 
@@ -92,46 +74,7 @@
         </div>
         <?php endforeach?>
         <form class="formulario" method="POST" action="/admin/propiedades/crear.php" enctype="multipart/form-data">
-            <fieldset>
-                <legend>Información General</legend>
-                <label for="titulo">Titulo:</label>
-                <input type="text" id="titulo" name="titulo" placeholder="Titulo de la propiedad" value="<?php echo $titulo; ?>">
-
-                <label for="precio">Precio:</label>
-                <input type="number" id="precio" name="precio" placeholder="Precio de la propiedad" value="<?php echo $precio; ?>">
-
-                <label for="img">Imagen:</label>
-                <input type="file" id="img" name="img" accept="image/jpeg, image/png">
-
-                <label for="descripcion">Descripcion</label>
-                <textarea id="descripcion" name="descripcion" cols="30" rows="10"><?php echo $descripcion; ?></textarea>
-            </fieldset>
-
-            <fieldset>
-                <legend>Informacion de la Propiedad</legend>
-                <label for="habitaciones">Habitaciones:</label>
-                <input type="number" id="habitaciones" name="habitaciones" placeholder="Ej: 3" min="1" max="9" value="<?php echo $habitaciones; ?>">
-
-                <label for="wc">Baños:</label>
-                <input type="number" id="wc" name="wc" placeholder="Ej: 3" min="1" max="9" value="<?php echo $wc; ?>">
-
-                <label for="estacionamiento">Estacionamiento:</label>
-                <input type="number" id="estacionamiento" name="estacionamiento" placeholder="Ej: 3" min="1" max="9" value="<?php echo $estacionamiento; ?>">
-
-            </fieldset>
-
-            <fieldset>
-                <legend>Vendedores</legend>
-                <select name="vendedores_id">
-                    <option value="" disabled selected>--Seleccione--</option>
-                    <?php while($row = mysqli_fetch_assoc($resultado)){ ?>
-                        <option <?php echo $vendedorID === $row["id"] ? "selected" : ""; ?> value="<?php echo $row["id"]; ?>">
-                            <?php echo $row["nombre"] . " " . $row["apellido"]; ?>
-                        </option>
-                    <?php } ?>    
-                </select>
-            </fieldset>
-
+            <?php include "../../includes/template/form__propiedades.php"?>
             <input type="submit" value="Crear Propiedad" class="boton boton-verde">
         </form>
         <a href="/admin" class="boton boton-amarillo">Volver</a>

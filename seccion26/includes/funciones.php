@@ -20,3 +20,9 @@ function debuguear($debug){
     echo "</pre>";
     exit;
 }
+
+//Escapar/Sanitizar del HTML
+function SanitizarHTML($html){
+    $sanitizado = htmlspecialchars($html);
+    return $sanitizado;
+}
