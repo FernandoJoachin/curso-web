@@ -21,7 +21,7 @@
                 if($tipo === "propiedad"){
                     //Consultar para obtener los propiedades
                     $propiedad = Propiedad::find($id);
-                    $propiedad->eliminar();
+                    $propiedad->eliminar($tipo);
                 }else if($tipo === "vendedor"){
                     //Consultar para obtener los vendedores
                     $vendedor = Vendedor::find($id);
@@ -62,7 +62,7 @@
                 <tr>
                     <td><?php echo $propiedad->id; ?></td>
                     <td><?php echo $propiedad->titulo; ?></td>
-                    <td><img class="img-tabla" src="./imagenes/<?php echo $propiedad->imagen; ?>" alt="imagen"></td>
+                    <td><img class="img-tabla" src="/imagenes/<?php echo $propiedad->imagen; ?>" alt="imagen"></td>
                     <td>$<?php echo $propiedad->precio; ?></td>
                     <td>
                         <a class="boton-amarillo-block" href="/admin/propiedades/actualizar.php?id=<?php echo $propiedad->id; ?>">Actualizar</a>

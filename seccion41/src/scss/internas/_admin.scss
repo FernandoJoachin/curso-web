@@ -1,0 +1,41 @@
+@use "base/variables" as vr;
+
+.alerta{
+    padding: 0.5rem;
+    text-align: center;
+    color: vr.$blanco;
+    font-weight: vr.$bold;
+    text-transform: uppercase;
+    margin: 1rem 0;
+
+    &.error{
+        background-color: vr.$rojo;
+    }
+
+    &.exito{
+        background-color: vr.$verde;
+    }
+}
+
+table.propiedades{
+    margin-top: 4rem;
+    width: 100%;
+    border-spacing: 0;
+
+    thead{
+        background-color: vr.$verde;
+
+        th{
+            color: vr.$blanco;
+            padding: 2rem;
+        }
+    }
+
+    .img-tabla{
+        width: 15rem;
+    }
+}
+
+.img-small{
+    width: 15rem;
+}
