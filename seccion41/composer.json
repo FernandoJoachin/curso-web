@@ -15,5 +15,7 @@
             "email": "97647369+FernandoJoachin@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {
+        "intervention/image": "^2.7"
+    }
 }
