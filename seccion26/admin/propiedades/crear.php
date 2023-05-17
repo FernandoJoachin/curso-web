@@ -1,14 +1,15 @@
 <?php
     require "../../includes/app.php";
     use App\Propiedad;
+    use App\Vendedor;
     use Intervention\Image\ImageManagerStatic as Image;
     $propiedad = new Propiedad();
     
     estaAutenticado();
 
     // Consultar para obtener los vendedores
-    $consulta = "SELECT * FROM vendedores";
-    $resultado = mysqli_query($db,$consulta);
+    $vendedores = Vendedor::all();
+
 
     //Arreglo con mensajes de errores
     $errores = Propiedad::getErrores();
@@ -66,7 +67,7 @@
     incluirTemplate("header");
 ?>
     <main class="contenedor seccion">
-        <h1>Crear</h1>
+        <h1>Crear Propiedad</h1>
         
         <?php foreach($errores as $error): ?>
         <div class="alerta error">

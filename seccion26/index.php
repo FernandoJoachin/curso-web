@@ -30,7 +30,6 @@
         <h1>Casas y Departamentos en Venta</h1>
         
         <?php
-            $limite = 3;
             include "includes/template/anuncio.php";
         ?>
         

@@ -1,0 +1,41 @@
+@use "base/variables" as vr;
+.dark-mode{
+    background-color: darken(vr.$grisOscuro, 10);
+
+    p, th, td{
+        color: vr.$blanco;
+    }
+
+    a, h1, h2, h3, h4 {
+        color: vr.$gris;
+    }
+
+    .anuncio, .resumen-propiedad{
+        background-color: vr.$grisOscuro;
+        border: 1px solid vr.$grisOscuro;
+
+        .precio{
+            color: vr.$verde;
+        }
+
+        .icono{
+            filter: invert(100%);
+        }
+    }
+    
+    .texto-nosotros blockquote{
+        color: vr.$blanco;
+    }
+   
+    .formulario{
+        label, legend, p{
+            color: vr.$gris;
+        }
+
+        input:not([type="submit"]), textarea, select{
+            background-color: vr.$grisOscuro;
+            border: 1px solid vr.$grisOscuro;
+            color: vr.$blanco;
+        }
+    }
+}

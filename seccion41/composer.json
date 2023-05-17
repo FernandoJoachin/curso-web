@@ -1,0 +1,21 @@
+{
+    "name": "lenovo/seccion41",
+    "description": "Creando un proyecto MCV",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Model\\" : "./models",
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers"
+        }
+    },
+    "authors": [
+        {
+            "name": "FernandoJoachin",
+            "email": "97647369+FernandoJoachin@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "intervention/image": "^2.7"
+    }
+}

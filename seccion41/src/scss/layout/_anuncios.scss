@@ -1,0 +1,50 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+@include mxn.tablet{
+    .contenedor-anuncios{
+        @include mxn.grid(3,2rem);
+    }
+}
+
+.anuncio{
+    background-color: lighten(vr.$gris, 5);
+    border: 1px solid darken(vr.$gris, 10);
+    padding: 0;
+    margin-bottom: 2rem;
+
+    .contenido-anuncio {
+        padding: 2rem;
+    }
+
+    h3, p {
+        margin: 0;
+    }
+}
+
+.precio{
+    color: vr.$verde;
+    font-weight: vr.$bold;
+    font-size: 3rem;
+}
+
+.iconos-caracteristicas{
+    @include mxn.grid(3,3rem);
+    list-style: none;
+    padding: 0;
+
+    li{
+        display: flex;
+        justify-content: center;
+
+        img{
+            flex:  0 0 3rem;
+            margin-right: 1rem;
+        }
+
+        p {
+            font-weight: vr.$bold;
+        }
+    }
+
+}
