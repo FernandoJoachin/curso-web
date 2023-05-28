@@ -59,7 +59,7 @@
                     <td><?php echo $vendedor->telefono; ?></td>
                     <td>
                         <a class="boton-amarillo-block" href="/public/vendedores/actualizar?id=<?php echo $vendedor->id; ?>">Actualizar</a>
-                        <form class="w-100" method="POST">
+                        <form class="w-100" method="POST" action="/public/vendedores/eliminar">
                             <input type="hidden" name="id" value="<?php echo $vendedor->id; ?>">
                             <input type="hidden" name="tipo" value="vendedor">
                             <input type="submit" class="boton-rojo-block w-100" value="Eliminar" >

@@ -57,6 +57,7 @@ function mostrarNotificacion($codigo){
 function validar_o_Redireccionar(String $url){
     //Validar la URL por un ID válido
     $id = $_GET["id"];
+    #debuguear( $_GET);
     $id = filter_var($id, FILTER_VALIDATE_INT);
     if(!$id) {
         header("Location: {$url}");

@@ -23,7 +23,7 @@
     <header class="header <?php echo $inicio ? "inicio" : ""; ?>">
         <div class="contenedor contenido-header">
             <div class="barra">
-                <a href="/">
+                <a href="/public">
                     <img src="/public/build/img/logo.svg" alt="Logo">
                 </a>
 
@@ -34,10 +34,10 @@
                 <div class="derecha">
                     <img class="dark-mode-boton" src="/public/build/img/dark-mode.svg" alt="dark mode">
                     <div class="navegacion">
-                        <a href="/nosotros.php">Nosotros</a>
-                        <a href="/anuncios.php">Anuncios</a>
-                        <a href="/blog.php">Blog</a>
-                        <a href="/contacto.php">Contacto</a>
+                        <a href="/public/nosotros">Nosotros</a>
+                        <a href="/public/anuncios">Anuncios</a>
+                        <a href="/public/blog">Blog</a>
+                        <a href="/public/contacto">Contacto</a>
                         <?php if($auth){ ?>
                             <a href="cerrar-sesion.php">Cerrar Sesión</a>
                         <?php } ?>
@@ -55,10 +55,10 @@
     <footer class="footer seccion">
         <div class="contenedor contenido-footer">
             <div class="navegacion">
-                <a href="/nosotros.php">Nostros</a>
-                <a href="/anuncios.php">Anuncios</a>
-                <a href="/blog.php">Blog</a>
-                <a href="/contacto.php">Contacto</a>
+                <a href="/public/nosotros">Nostros</a>
+                <a href="/public/anuncios">Anuncios</a>
+                <a href="/public/blog">Blog</a>
+                <a href="/public/contacto">Contacto</a>
             </div>
         </div>
         <p class="copyright">Todos los derechos reservados <?php echo date("Y"); ?> &copy;</p>
