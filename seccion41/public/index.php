@@ -4,6 +4,7 @@ use MVC\Router;
 use Controllers\PropiedadController;
 use Controllers\VendedorController;
 use Controllers\PaginasController;
+use Controllers\LoginController;
 
 $router = New Router();
 //NombreClase::class - Obtiene el nombre completo de la clase en tiempo de ejecución, sin tener que escribir el nombre de la clase directamente en el código.
@@ -31,4 +32,10 @@ $router->get("/blog",[PaginasController::class, "blog"]);
 $router->get("/entrada",[PaginasController::class, "entrada"]);
 $router->get("/contacto",[PaginasController::class, "contacto"]);
 $router->post("/contacto",[PaginasController::class, "contacto"]);
+
+/**Login y autenticacion */
+$router->get("/login",[LoginController::class,"login"]);
+$router->post("/login",[LoginController::class,"login"]);
+$router->get("/logout",[LoginController::class,"logout"]);
+
 $router->comprobarRutas();

@@ -39,7 +39,7 @@
                         <a href="/public/blog">Blog</a>
                         <a href="/public/contacto">Contacto</a>
                         <?php if($auth){ ?>
-                            <a href="cerrar-sesion.php">Cerrar Sesión</a>
+                            <a href="/public/logout">Cerrar Sesión</a>
                         <?php } ?>
                     </div>
                 </div>
