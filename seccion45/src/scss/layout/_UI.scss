@@ -1,0 +1,26 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.contenedor-app{
+    @include mxn.tablet{
+        display:grid;
+        grid-template-columns: repeat(2,1fr);
+        min-height: 100vh;
+    }
+
+    .img{
+        background-image: url(../img/1.jpg);
+        background-size: cover;
+        background-position: center center;
+        height: 20rem;
+        @include mxn.tablet{
+            height: auto;
+        }
+    }
+
+    .app{
+        width: 95%;
+        margin: 0 auto;
+        padding: 3rem 0;
+    }
+}
