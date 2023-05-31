@@ -21,6 +21,7 @@ $router->post("/recuperar",[LoginController::class,"recuperarPassword"]);
 
 //Crear cuenta
 $router->get("/crear-cuenta",[LoginController::class,"crearCuenta"]);
+$router->post("/crear-cuenta",[LoginController::class,"crearCuenta"]);
 
 
 

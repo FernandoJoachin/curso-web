@@ -1,0 +1,16 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.acciones{
+    margin-top: vr.$separacion;
+    @include mxn.tablet{
+        display: flex;
+        justify-content: space-around;
+    }
+    a{
+        color: vr.$blanco;
+        display: block;
+        margin-bottom: calc(vr.$separacion / 2);
+        text-align: center;
+    }
+}

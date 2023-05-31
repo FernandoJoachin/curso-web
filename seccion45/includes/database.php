@@ -1,6 +1,6 @@
 <?php //Proporcionado en el curso
 
-$db = mysqli_connect('localhost', 'root', 'root', 'appsalon');
+$db = mysqli_connect('localhost', 'root', 'root', 'appsalon_mvc');
 
 
 if (!$db) {

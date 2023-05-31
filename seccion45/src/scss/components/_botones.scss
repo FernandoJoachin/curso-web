@@ -1,0 +1,6 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.boton{
+    @include mxn.boton(vr.$azul,vr.$blanco);
+}
