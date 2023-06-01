@@ -26,7 +26,7 @@ class VendedorController{
 
     public static function actualizar(Router $router){
         //Validar la URL por un ID válido
-        $id = validar_o_Redireccionar("/public/admin");
+        $id = validar_o_Redireccionar("/admin");
 
         //Consultar para obtener los vendedores
         $vendedor = Vendedor::find($id);

@@ -31,6 +31,6 @@
 </form>
 
 <div class="acciones">
-    <a href="/public">¿Ya tienes una cuenta? Inicia Sesión</a>
-    <a href="/public/olvidar">¿Olvidaste tu password?</a>
+    <a href="/">¿Ya tienes una cuenta? Inicia Sesión</a>
+    <a href="/olvidar">¿Olvidaste tu password?</a>
 </div>

@@ -2,8 +2,8 @@
     <h1>Contacto</h1>
 
     <picture>
-        <source srcset="/public/build/img/destacada3.webp" type="image/webp">
-        <img loading="lazy" width="200" height="300" src="/public/build/img/destacada3.jpg" alt="Imagen Contacto">
+        <source srcset="/build/img/destacada3.webp" type="image/webp">
+        <img loading="lazy" width="200" height="300" src="/build/img/destacada3.jpg" alt="Imagen Contacto">
     </picture>
 
     <?php

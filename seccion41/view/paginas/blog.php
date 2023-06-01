@@ -3,12 +3,12 @@
     <article class="entrada-blog">
         <div class="img">
             <picture>
-                <source srcset="/public/build/img/blog1.webp" type="image/webp">
+                <source srcset="/build/img/blog1.webp" type="image/webp">
                 <img loading="lazy" src="/build/img/blog1.jpg" alt="Imagen Entrada de Blog">
             </picture>
         </div>
         <div class="texto-entrada">
-            <a href="/public/entrada">
+            <a href="/entrada">
                 <h4>Terraza en el techo de tu casa</h4>
                 <p class="informacion-meta">
                     Escrito el:
@@ -24,12 +24,12 @@
     <article class="entrada-blog">
         <div class="img">
             <picture>
-                <source srcset="/public/build/img/blog2.webp" type="image/webp">
-                <img loading="lazy" src="/public/build/img/blog2.jpg" alt="Imagen Entrada de Blog">
+                <source srcset="/build/img/blog2.webp" type="image/webp">
+                <img loading="lazy" src="/build/img/blog2.jpg" alt="Imagen Entrada de Blog">
             </picture>
         </div>
         <div class="texto-entrada">
-            <a href="/public/entrada">
+            <a href="/entrada">
                 <h4>Guía para la decoración de tu hogar</h4>
                 <p class="informacion-meta">
                     Escrito el:
@@ -46,12 +46,12 @@
     <article class="entrada-blog">
         <div class="img">
             <picture>
-                <source srcset="/public/build/img/blog3.webp" type="image/webp">
-                <img loading="lazy" src="/public/build/img/blog3.jpg" alt="Imagen Entrada de Blog">
+                <source srcset="/build/img/blog3.webp" type="image/webp">
+                <img loading="lazy" src="/build/img/blog3.jpg" alt="Imagen Entrada de Blog">
             </picture>
         </div>
         <div class="texto-entrada">
-            <a href="/public/entrada">
+            <a href="/entrada">
                 <h4>Terraza en el techo de tu casa</h4>
                 <p class="informacion-meta">
                     Escrito el:
@@ -67,12 +67,12 @@
     <article class="entrada-blog">
         <div class="img">
             <picture>
-                <source srcset="/public/build/img/blog4.webp" type="image/webp">
-                <img loading="lazy" src="/public/build/img/blog4.jpg" alt="Imagen Entrada de Blog">
+                <source srcset="/build/img/blog4.webp" type="image/webp">
+                <img loading="lazy" src="/build/img/blog4.jpg" alt="Imagen Entrada de Blog">
             </picture>
         </div>
         <div class="texto-entrada">
-            <a href="/public/entrada">
+            <a href="/entrada">
                 <h4>Guía para la decoración de tu hogar</h4>
                 <p class="informacion-meta">
                     Escrito el:

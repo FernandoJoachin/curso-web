@@ -3,8 +3,8 @@
     <div class="contenido-nosotros">
         <div class="img">
             <picture>
-                <source srcset="/public/build/img/nosotros.webp" type="image/webp">
-                <source srcset="/public/build/img/nosotros.jpg" type="image/jpg">
+                <source srcset="/build/img/nosotros.webp" type="image/webp">
+                <source srcset="/build/img/nosotros.jpg" type="image/jpg">
                 <img loading="lazy" width="200" height="300" src="build/img/nosotros.jpg" alt="">
             </picture>
         </div>

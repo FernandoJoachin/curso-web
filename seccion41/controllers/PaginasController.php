@@ -25,7 +25,7 @@ class PaginasController{
     }
 
     public static function propiedad(Router $router){
-        $id = validar_o_Redireccionar("/public/anuncios");
+        $id = validar_o_Redireccionar("/anuncios");
         $propiedad = Propiedad::find($id);
         $router->render("paginas/propiedad",[
             "propiedad" => $propiedad

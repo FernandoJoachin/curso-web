@@ -10,6 +10,6 @@
         <?php include __DIR__ . "/form.php" ?>
         <input type="submit" value="Actualizar Vendedor(a)" class="boton boton-verde">
     </form>
-    <a href="/public/admin" class="boton boton-amarillo">Volver</a>
+    <a href="/admin" class="boton boton-amarillo">Volver</a>
     
 </main>

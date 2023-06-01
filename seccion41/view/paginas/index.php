@@ -11,14 +11,14 @@
     ?>
     
     <div class="ver-todas alinear-derecha">
-        <a class="boton-verde" href="anuncions.html">Ver todas</a>
+        <a class="boton-verde" href="/anuncios">Ver todas</a>
     </div>
 </section>
 
 <section class="img-contacto">
     <h2>Encuentra la casa de tus sueños</h2>
     <p>Llena el formulario de contacto y un asesor se pondrá en contacto contigo a la brevedad</p>
-    <a class="boton-amarillo" href="contacto.html">Contáctanos</a>
+    <a class="boton-amarillo" href="/contacto">Contáctanos</a>
 </section>
 
 <div class="contenedor seccion seccion-inferior">
@@ -27,12 +27,12 @@
         <article class="entrada-blog">
             <div class="img">
                 <picture>
-                    <source srcset="/public/build/img/blog1.webp" type="image/webp">
-                    <img loading="lazy" src="/public/build/img/blog1.jpg" alt="Imagen Entrada de Blog">
+                    <source srcset="/build/img/blog1.webp" type="image/webp">
+                    <img loading="lazy" src="/build/img/blog1.jpg" alt="Imagen Entrada de Blog">
                 </picture>
             </div>
             <div class="texto-entrada">
-                <a href="entrada.php">
+                <a href="/entrada">
                     <h4>Terraza en el techo de tu casa</h4>
                     <p class="informacion-meta">
                         Escrito el:
@@ -48,12 +48,12 @@
         <article class="entrada-blog">
             <div class="img">
                 <picture>
-                    <source srcset="/public/build/img/blog2.webp" type="image/webp">
-                    <img loading="lazy" src="/public/build/img/blog2.jpg" alt="Imagen Entrada de Blog">
+                    <source srcset="/build/img/blog2.webp" type="image/webp">
+                    <img loading="lazy" src="/build/img/blog2.jpg" alt="Imagen Entrada de Blog">
                 </picture>
             </div>
             <div class="texto-entrada">
-                <a href="entrada.php">
+                <a href="/entrada">
                     <h4>Guía para la decoración de tu hogar</h4>
                     <p class="informacion-meta">
                         Escrito el:
