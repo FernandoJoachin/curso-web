@@ -113,7 +113,7 @@ CREATE TABLE `usuarios` (
   `confirmado` tinyint(1) DEFAULT NULL,
   `token` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,7 +122,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Fernando','Joachin','correo@correo.com','1234567','9999123456',1,NULL,NULL),(4,'Fernando','Joachin','correo2@correo.com','$2y$10$nLd7rj1cXA5qEf3acPJEDe46PVABLmZHYUP8ql.e1ZQXW6VVbISra','5512866957',0,0,'64781c6b285ef');
+INSERT INTO `usuarios` VALUES (1,'Fernando','Joachin','correo@correo.com','1234567','9999123456',1,NULL,NULL),(4,'Fernando','Joachin','correo2@correo.com','$2y$10$W6zGktFC7w7wnlynPqXbVuVpxm8upLsAPiZoz2H4xsUEXsAKZHY.i','5512866957',0,1,''),(5,'Fernando','Joachin','noconfirmado@correo.com','$2y$10$.gYt10POFlDpeT5p37Ycv.y9yhkFZP4pxDCvHKDi8aj.IJULj2M9e','9999999998',0,0,'64795562756b0'),(6,'Fernando','Joachin','admin@correo.com','$2y$10$P8q9rOKx3W.Ice/o0PvyuO6LvrZaMmWlee/v5yLEukmARi4EqEEta','9999999990',1,1,'');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -135,4 +135,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-31 22:21:31
+-- Dump completed on 2023-06-01 22:30:34

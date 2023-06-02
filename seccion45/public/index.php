@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
+use Controllers\CitaController;
 use Controllers\LoginController;
 
 use MVC\Router;
@@ -16,8 +17,8 @@ $router->get("/logout",[LoginController::class,"logout"]);
 //Recuperar Password
 $router->get("/olvidar",[LoginController::class,"olvidarPassword"]);
 $router->post("/olvidar",[LoginController::class,"olvidarPassword"]);
-$router->get("/recuperar",[LoginController::class,"recuperarPassword"]);
-$router->post("/recuperar",[LoginController::class,"recuperarPassword"]);
+$router->get("/reestablecer",[LoginController::class,"reestablecerPassword"]);
+$router->post("/reestablecer",[LoginController::class,"reestablecerPassword"]);
 
 //Crear cuenta
 $router->get("/crear-cuenta",[LoginController::class,"crearCuenta"]);
@@ -27,6 +28,8 @@ $router->post("/crear-cuenta",[LoginController::class,"crearCuenta"]);
 $router->get("/confirmar-cuenta",[LoginController::class,"confirmarCuenta"]);
 $router->get("/mensaje",[LoginController::class,"mensaje"]);
 
+//Zona restringida
+$router->get("/cita",[CitaController::class,"index"]);
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
