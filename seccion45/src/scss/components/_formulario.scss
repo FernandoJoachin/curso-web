@@ -20,6 +20,12 @@
         border: none;
         padding: calc(vr.$separacion / 4);
         border-radius: 1rem;
+
+        &:disabled{
+            background-color: vr.$blanco;
+            color: vr.$negro;
+            cursor: not-allowed;
+        }
     }
 }
 
