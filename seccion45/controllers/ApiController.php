@@ -10,4 +10,6 @@ class ApiController{
         header('Content-Type: application/json');
         echo json_encode($servicios, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     }
+
+    public static function guardar(){}
 }

@@ -15,6 +15,7 @@ class LoginController{
                 $usuario = Usuario::where("email",$auth->email);
                 if($usuario){
                     if($usuario->comprobarPassword_Y_Verificado($auth->password)){
+                        session_start();
                         $_SESSION["id"] = $usuario->id;
                         $_SESSION["nombre"] = $usuario->nombre . " " . $usuario->apellido;
                         $_SESSION["email"] = $usuario->email;
