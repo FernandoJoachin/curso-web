@@ -1,0 +1,22 @@
+@use "base/variables" as vr;
+
+.contenido-resumen{
+    p{
+        margin-bottom: 1rem;
+    }
+
+    span{
+        color: vr.$azul;
+        font-weight: vr.$bold;
+        font-size: 2.4rem;
+    }
+}
+
+.contenedor-servicio{
+    padding: 2rem 0;
+    border-bottom: 1px solid vr.$gris;
+
+    &:last-of-type{
+        margin-bottom: vr.$separacion;
+    }
+}

@@ -1,0 +1,32 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.tabs{
+    @include mxn.tablet{
+        display: grid;
+        @include mxn.grid(3, 1rem);
+    }
+
+    button{
+        background-color: vr.$azul;
+        border: none;
+        color: vr.$blanco;
+        padding: 1rem;
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        font-weight: vr.$bold;
+        transition: background-color 300ms ease;
+
+        &:hover{
+            cursor: pointer;
+            background-color: darken(vr.$azul, 10%);
+        }
+
+        &.actual{
+            background-color: vr.$blanco;
+            color: vr.$azul;
+        }
+    }
+}
