@@ -3,6 +3,7 @@ const pasoInicial = 1;
 const pasoFinal = 3;
 
 const cita = {
+    id: "",
     nombre: "",
     fecha: "",
     hora: "",
@@ -23,6 +24,7 @@ function iniciarApp(){
     consultarApi(); //Consulta la API en el backend de PHP
 
     nombreClienteCita();//Añade el nombre del cliente al objeto Cita
+    idClienteCita();//Añade el id del cliente al objeto Cita
     fechaCita();//Añade la fecha de la cita al objeto Cita
     horaCita();//Añade la hora de la cita al objeto Cita
     resumenCita()//Muestra el resumen de la cita
@@ -152,7 +154,12 @@ function seleccionarServicio(servicio){
         cita.servicios = [...servicios,servicio];
         divServicio.classList.add("seleccionado");
     }
-    console.log(cita);
+    //console.log(cita);
+}
+
+function idClienteCita(){
+    const id = document.querySelector("#id").value;
+    cita.id = id;
 }
 
 function nombreClienteCita(){
@@ -204,7 +211,6 @@ function resumenCita(){
         headingServicio.textContent = "Resumen de los servicios"
         resumen.appendChild(headingServicio);
 
-        console.log(servicios);
         servicios.forEach(servicio => {
             const {nombre,precio} = servicio;
             const contenedorServicios = document.createElement("DIV");
@@ -252,14 +258,46 @@ function resumenCita(){
         btnReservar.textContent = "Reservar cita";
         btnReservar.onclick = reservarCita;
         resumen.appendChild(btnReservar);
-
-
     }
 }
 
-function reservarCita(){
+async function reservarCita(){
+    const {id,fecha,hora, servicios} = cita;
+    const idServicios = servicios.map(servicio => servicio.id);
+
     const datos = new FormData() //Para imprimir - console.log([...datos]);
-    datos.append("nombre","Juan"); //
+    datos.append("usuario_id", id);
+    datos.append("fecha", fecha); 
+    datos.append("hora", hora); 
+    datos.append("servicios", idServicios); 
+
+    try{
+        const url = "http://localhost:3000/api/citas";//Peticion hacia la api
+        const respuesta = await fetch(url,{method: "POST", body: datos});
+        const resultado = await respuesta.json();
+        console.log(resultado);
+        
+        if(resultado.resultado){
+            //Ejemplo sacado de SweetAlert2
+            Swal.fire({
+                icon: 'success',
+                title: 'Cita creada',
+                text: 'La cita fue creada correctamente',
+                button: "Ok"
+            }).then(()=>{
+                window.location.reload();
+            });
+        }
+    }catch(e){
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Hubo un error al guardar la cita',
+            button: "Ok"
+        }).then(()=>{
+            window.location.reload();
+        });
+    }
 }
 
 function mostrarAlerta(mensaje,tipoAlerta, elemento, desaparecer = true){

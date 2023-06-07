@@ -24,3 +24,19 @@
         padding: 3rem 0;
     }
 }
+
+.barra{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: vr.$separacion 0;
+
+    .boton{
+        @include mxn.boton(vr.$negro,vr.$blanco);
+        &:hover {
+            background-color: darken(vr.$gris, 50%);
+        }
+        margin: 0;
+        width: 25rem;
+    }
+}
