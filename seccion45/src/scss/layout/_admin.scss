@@ -1,0 +1,36 @@
+@use "base/variables" as vr;
+
+.citas{
+    list-style: none;
+    padding: 0;
+
+    li{
+        padding: 1rem;
+        border-top: 1px solid vr.$blanco;
+        p{
+            font-weight: vr.$bold;
+            color: vr.$azul;
+        }
+
+        span, .servicio{
+            font-weight: vr.$regular;
+            color: vr.$blanco;
+        }
+    }
+}
+
+.citaNoDisponible{
+    margin-top: vr.$separacion;
+}
+
+.servicios{
+    @extend .citas;
+
+    .acciones{
+        margin: vr.$separacion 0 0 0;
+    }
+
+    .boton,.boton-eliminar{
+        margin: 0;
+    }
+}

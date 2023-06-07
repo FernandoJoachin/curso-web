@@ -22,6 +22,9 @@
         width: 95%;
         margin: 0 auto;
         padding: 3rem 0;
+        @include mxn.tablet{
+            overflow: scroll;
+        }
     }
 }
 
@@ -29,7 +32,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: vr.$separacion 0;
+    margin: vr.$separacion 0 vr.$separacion / 2 0 ;
 
     .boton{
         @include mxn.boton(vr.$negro,vr.$blanco);
@@ -38,5 +41,18 @@
         }
         margin: 0;
         width: 25rem;
+    }
+}
+
+.barra-servicios{
+    margin-bottom: vr.$separacion;
+
+    .boton{
+        margin: 0 0 1rem 0;
+    }
+
+    @include mxn.tablet{
+        display: flex;
+        justify-content: space-between;
     }
 }

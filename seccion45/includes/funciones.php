@@ -19,3 +19,16 @@ function estaAutenticado(){
         header("Location: /");
     }
 }
+
+function esAdmin(){
+    if(!isset($_SESSION["admin"])){
+        header("Location: /");
+    }
+}
+
+function ultimo(string $actual, string $proximo) : bool{
+    if($actual !== $proximo){
+        return true;
+    }
+    return false;
+}

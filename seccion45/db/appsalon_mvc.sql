@@ -30,7 +30,7 @@ CREATE TABLE `citas` (
   PRIMARY KEY (`id`),
   KEY `fk_citas_usuarios_idx` (`usuario_id`),
   CONSTRAINT `fk_citas_usuarios` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,7 +59,7 @@ CREATE TABLE `citasservicios` (
   KEY `fk_citasServicios_servicios_idx` (`servicio_id`),
   CONSTRAINT `fk_citasservicios_citas` FOREIGN KEY (`cita_id`) REFERENCES `citas` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
   CONSTRAINT `fk_citasservicios_servicios` FOREIGN KEY (`servicio_id`) REFERENCES `servicios` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +68,7 @@ CREATE TABLE `citasservicios` (
 
 LOCK TABLES `citasservicios` WRITE;
 /*!40000 ALTER TABLE `citasservicios` DISABLE KEYS */;
-INSERT INTO `citasservicios` VALUES (1,4,1),(2,4,4),(3,4,3),(4,4,2),(5,5,1),(6,5,2);
+INSERT INTO `citasservicios` VALUES (1,4,1),(2,4,4),(3,4,3),(4,4,2),(5,5,1),(6,5,2),(7,NULL,10),(8,NULL,9);
 /*!40000 ALTER TABLE `citasservicios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,7 +84,7 @@ CREATE TABLE `servicios` (
   `nombre` varchar(60) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `precio` decimal(5,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,7 +93,7 @@ CREATE TABLE `servicios` (
 
 LOCK TABLES `servicios` WRITE;
 /*!40000 ALTER TABLE `servicios` DISABLE KEYS */;
-INSERT INTO `servicios` VALUES (1,'Corte de Cabello Mujer',90.00),(2,'Corte de Cabello Hombre',80.00),(3,'Corte de Cabello Niño',60.00),(4,'Peinado Mujer',80.00),(5,'Peinado Hombre',60.00),(6,'Peinado Niño',60.00),(7,'Corte de Barba',60.00),(8,'Tinte Mujer',300.00),(9,'Uñas',400.00),(10,'Lavado de Cabello',50.00),(11,'Tratamiento Capilar',150.00);
+INSERT INTO `servicios` VALUES (1,'Corte de Cabello Mujer',100.00),(2,'Corte de Cabello Hombre',80.00),(3,'Corte de Cabello Niño',60.00),(4,'Peinado Mujer',80.00),(5,'Peinado Hombre',60.00),(6,'Peinado Niño',60.00),(7,'Corte de Barba',60.00),(8,'Tinte Mujer',300.00),(9,'Uñas',400.00),(10,'Lavado de Cabello',50.00),(11,'Tratamiento Capilar',150.00);
 /*!40000 ALTER TABLE `servicios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,7 +124,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Fernando','Joachin','correo@correo.com','1234567','9999123456',1,NULL,NULL),(4,'Fernando','Joachin','correo2@correo.com','$2y$10$W6zGktFC7w7wnlynPqXbVuVpxm8upLsAPiZoz2H4xsUEXsAKZHY.i','5512866957',0,1,''),(5,'Fernando','Joachin','noconfirmado@correo.com','$2y$10$.gYt10POFlDpeT5p37Ycv.y9yhkFZP4pxDCvHKDi8aj.IJULj2M9e','9999999998',0,0,'64795562756b0'),(6,'Fernando','Joachin','admin@correo.com','$2y$10$P8q9rOKx3W.Ice/o0PvyuO6LvrZaMmWlee/v5yLEukmARi4EqEEta','9999999990',1,1,'');
+INSERT INTO `usuarios` VALUES (1,'Fernando','Joachin','correo@correo.com','1234567','9999123456',1,NULL,NULL),(4,'Fernando','Joachin','correo2@correo.com','$2y$10$7Yr.XRxTQGlq.bdA4lyQAe10T51/Mc6ce5hJ6Qi/TEDDWbroN5ftm','9999999997',0,1,''),(5,'Fernando','Joachin','noconfirmado@correo.com','$2y$10$.gYt10POFlDpeT5p37Ycv.y9yhkFZP4pxDCvHKDi8aj.IJULj2M9e','9999999998',0,0,'64795562756b0'),(6,'Fernando','Joachin','admin@correo.com','$2y$10$P8q9rOKx3W.Ice/o0PvyuO6LvrZaMmWlee/v5yLEukmARi4EqEEta','9999999990',1,1,'');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -137,4 +137,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-05 23:08:42
+-- Dump completed on 2023-06-07  0:40:10
