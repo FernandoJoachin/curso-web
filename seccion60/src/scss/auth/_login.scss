@@ -1,0 +1,19 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.login{
+    margin-top: 3rem;
+    .uptask{
+        @include mxn.textoDegradado(vr.$morado);
+    }
+
+    input[type="submit"]{
+        @include mxn.boton(vr.$morado, vr.$blanco);
+    }
+
+    .acciones{
+        a{
+            color: vr.$morado;
+        }
+    }
+}

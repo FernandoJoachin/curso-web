@@ -1,0 +1,15 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.confirmar{
+    margin-top: 3rem;
+    .uptask{
+        @include mxn.textoDegradado(vr.$cafe);
+    }
+
+    .acciones{
+        a{
+            color: vr.$cafe;
+        }
+    }
+}
