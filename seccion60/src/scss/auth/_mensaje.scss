@@ -1,0 +1,9 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.mensaje{
+    margin-top: 3rem;
+    .uptask{
+        @include mxn.textoDegradado(vr.$amarillo);
+    }
+}

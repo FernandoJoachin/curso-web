@@ -1,0 +1,23 @@
+{
+    "name": "lenovo/seccion45",
+    "description": "Proyecto PHP 8, MVC, SQL, SASS, Gulp",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MVC\\": "./",
+            "Controllers\\": "./controllers",
+            "Model\\": "./models",
+            "Classes\\": "./class"
+        }
+    },
+    "authors": [
+        {
+            "name": "FernandoJoachin",
+            "email": "97647369+FernandoJoachin@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.8",
+        "vlucas/phpdotenv": "^5.5"
+    }
+}

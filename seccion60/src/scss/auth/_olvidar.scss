@@ -1,0 +1,19 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.olvidar{
+    margin-top: 3rem;
+    .uptask{
+        @include mxn.textoDegradado(vr.$naranja);
+    }
+
+    input[type="submit"]{
+        @include mxn.boton(vr.$naranja, vr.$blanco);
+    }
+
+    .acciones{
+        a{
+            color: vr.$naranja;
+        }
+    }
+}

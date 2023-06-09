@@ -139,49 +139,99 @@ class ActiveRecord {
 
     // crea un nuevo registro
     public function crear() {
-        // Sanitizar los datos
-        $atributos = $this->sanitizarAtributos();
+        $atributos = $this->atributos();
+
         // Insertar en la base de datos
-        $query = " INSERT INTO " . static::$tabla . " ( ";
-        $query .= join(', ', array_keys($atributos));
-        $query .= " ) VALUES ('"; 
-        $query .= join("', '", array_values($atributos));
-        $query .= "') ";
-        // Resultado de la consulta
-        $resultado = self::$db->query($query);
+        $columnas = implode(', ', array_keys($atributos));
+        $atributosMarcadores = implode(', ', array_fill(0, count($atributos), '?'));
+    
+        $query = "INSERT INTO " . static::$tabla . " ($columnas) VALUES ($atributosMarcadores)";
+
+        $stmt = self::$db->prepare($query); 
+        if (!$stmt) {
+            // Error en la preparación de la consulta
+            return [
+                'resultado' => false,
+                'id' => null
+            ];
+        }
+
+        $valores = array_values($atributos);
+        $tipos = $this->obtenerTipoDeDatos($atributos); 
+        $stmt->bind_param($tipos, ...$valores);
+
+        //Ejecutar la consulta
+        $resultado = $stmt->execute();
+
+        //Cerrar la consulta y la conexión
+        $stmt->close();
+
         return [
            'resultado' =>  $resultado,
            'id' => self::$db->insert_id
         ];
     }
 
-    // Actualizar el registro
+    public function obtenerTipoDeDatos($atributos){
+        $tipo = '';
+        foreach ($atributos as $valor) {
+            if (is_int($valor)) {
+                $tipo .= 'i';  // Entero
+            } elseif (is_float($valor)) {
+                $tipo .= 'd';  // Número de punto flotante (double)
+            } elseif (is_string($valor)) {
+                $tipo .= 's';  // Cadena (string)
+            } else {
+                $tipo .= 's';  // Por defecto, trata todo como cadena
+            }
+        }
+        return $tipo;
+    }
+
     public function actualizar() {
-        // Sanitizar los datos
-        $atributos = $this->sanitizarAtributos();
+        $atributos = $this->atributos();
 
         // Iterar para ir agregando cada campo de la BD
-        $valores = [];
+        $campo = [];
         foreach($atributos as $key => $value) {
-            $valores[] = "{$key}='{$value}'";
+            $campo[] = "{$key} = ?";
         }
 
-        // Consulta SQL
-        $query = "UPDATE " . static::$tabla ." SET ";
-        $query .=  join(', ', $valores );
-        $query .= " WHERE id = '" . self::$db->escape_string($this->id) . "' ";
-        $query .= " LIMIT 1 "; 
+        $query = "UPDATE " . static::$tabla . " SET ";
+        $query .= implode(', ', $campo);
+        $query .= " WHERE id = " . $this->id . " LIMIT 1";
 
-        // Actualizar BD
-        $resultado = self::$db->query($query);
+        $stmt = self::$db->prepare($query);
+        if (!$stmt) {
+            // Error en la preparación de la consulta
+            return false;
+        }
+
+        $valores = array_values($atributos);
+        $tipos = $this->obtenerTipoDeDatos($atributos); 
+        // Vincular los valores a los marcadores de posición
+        $stmt->bind_param($tipos, ...$valores);
+
+        // Ejecutar la consulta
+        $resultado = $stmt->execute();
+
+        // Cerrar la declaración
+        $stmt->close();
+
         return $resultado;
     }
 
-    // Eliminar un Registro por su ID
+    // Eliminar un registro - Toma el ID de Active Record
     public function eliminar() {
-        $query = "DELETE FROM "  . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";
-        $resultado = self::$db->query($query);
+        $query = "DELETE FROM "  . static::$tabla . " WHERE id = ? LIMIT 1";
+        $stmt = self::$db->prepare($query);
+        if (!$stmt) {
+            // Error en la preparación de la consulta
+            return false;
+        }
+        $stmt->bind_param('i', $this->id);
+        $resultado = $stmt->execute();
+        $stmt->close();
         return $resultado;
     }
-
 }

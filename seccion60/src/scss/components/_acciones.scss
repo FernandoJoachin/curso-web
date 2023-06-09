@@ -1,0 +1,21 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.acciones{
+    margin-top: 4rem;
+    @include mxn.tablet{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    a{
+        display: block;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: vr.$negro;
+
+        &:last-of-type{
+            margin-bottom: 0;
+        }
+    }
+}

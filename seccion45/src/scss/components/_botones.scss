@@ -4,3 +4,7 @@
 .boton{
     @include mxn.boton(vr.$azul,vr.$blanco);
 }
+
+.boton-eliminar{
+    @include mxn.boton(vr.$rojo,vr.$blanco);
+}
