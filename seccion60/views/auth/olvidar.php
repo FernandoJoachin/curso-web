@@ -3,7 +3,9 @@
 
     <div class="contenedor-sm">
         <p class="descripcion-pagina">Reestablece tu password de tu cuenta en UpTask</p>
-        <form class="formulario" method="POST">
+
+        <?php include_once __DIR__ . "/../template/alertas.php"; ?>
+        <form class="formulario" method="POST" novalidate>
             <div class="campo">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" placeholder="Tu Email">
