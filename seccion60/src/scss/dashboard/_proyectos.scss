@@ -1,0 +1,41 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.no-proyectos{
+    a{
+        color: vr.$indigo;
+    }
+}
+
+.listado-proyectos{
+    list-style: none;
+    padding: 0;
+    margin-top: 3rem;
+    @include mxn.grid(1,2rem);
+
+    @include mxn.tablet{
+        @include mxn.grid(2,2rem);
+    }
+
+    @include mxn.desktop{
+        @include mxn.grid(3,2rem);
+    }
+
+    .proyecto{
+        background-color: lighten(vr.$indigo,5%);
+        min-height: 12rem;
+        display: flex;
+        align-items: center;
+        padding: 2rem;
+        line-height: 2;
+        border-radius: 1rem;
+
+        &:hover{
+            background-color: darken(vr.$indigo,5%);
+        }
+
+        a{
+            color: vr.$blanco;
+        }
+    }
+}

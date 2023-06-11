@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: uptask_mvc
 -- ------------------------------------------------------
--- Server version	8.0.33
+-- Server version	8.0.31
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,13 +24,13 @@ DROP TABLE IF EXISTS `proyectos`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `proyectos` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `proyecto` varchar(60) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `url` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `proyecto` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `usuario_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_proyecos_usuarios_idx` (`usuario_id`),
   CONSTRAINT `fk_proyecos_usuarios` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,8 +39,34 @@ CREATE TABLE `proyectos` (
 
 LOCK TABLES `proyectos` WRITE;
 /*!40000 ALTER TABLE `proyectos` DISABLE KEYS */;
-INSERT INTO `proyectos` VALUES (1,'Tienda Virtual','2a89400d5bee1b6aa6b992ee182b9126',5);
+INSERT INTO `proyectos` VALUES (1,'Tienda Virtual','2a89400d5bee1b6aa6b992ee182b9126',5),(2,'Tienda de ropa','cd69c3e243f0dd8990345918ff4acaae',5);
 /*!40000 ALTER TABLE `proyectos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tareas`
+--
+
+DROP TABLE IF EXISTS `tareas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tareas` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(60) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `estado` tinyint(1) DEFAULT NULL,
+  `proyecto_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_tareas_proyectos_idx` (`proyecto_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tareas`
+--
+
+LOCK TABLES `tareas` WRITE;
+/*!40000 ALTER TABLE `tareas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tareas` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -52,10 +78,10 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `password` varchar(60) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `token` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombre` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `token` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `confirmado` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -80,4 +106,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-09  2:24:11
+-- Dump completed on 2023-06-11  4:30:18
