@@ -27,7 +27,7 @@
             background-color: vr.$blanco;
         }
 
-        input[type="submit"]{
+        .submit-crear-proyecto{
             @include mxn.boton(darken(vr.$indigo, 20%), vr.$blanco);
             font-size: 1.5rem;
             padding: 1rem;
