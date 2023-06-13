@@ -30,7 +30,7 @@ CREATE TABLE `proyectos` (
   PRIMARY KEY (`id`),
   KEY `fk_proyecos_usuarios_idx` (`usuario_id`),
   CONSTRAINT `fk_proyecos_usuarios` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `proyectos` (
 
 LOCK TABLES `proyectos` WRITE;
 /*!40000 ALTER TABLE `proyectos` DISABLE KEYS */;
-INSERT INTO `proyectos` VALUES (1,'Tienda Virtual','2a89400d5bee1b6aa6b992ee182b9126',5),(2,'Tienda de ropa','cd69c3e243f0dd8990345918ff4acaae',5);
+INSERT INTO `proyectos` VALUES (1,'Tienda Virtual','2a89400d5bee1b6aa6b992ee182b9126',5),(2,'Tienda de ropa','cd69c3e243f0dd8990345918ff4acaae',5),(4,'Diseñar Logotipo','0b0dfcf3268c3096130fe4306d19f85d',5);
 /*!40000 ALTER TABLE `proyectos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,12 +52,13 @@ DROP TABLE IF EXISTS `tareas`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tareas` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(60) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombre` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `estado` tinyint(1) DEFAULT NULL,
   `proyecto_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_tareas_proyectos_idx` (`proyecto_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  KEY `fk_tareas_proyectos_idx` (`proyecto_id`),
+  CONSTRAINT `fk_tareas_proyectos` FOREIGN KEY (`proyecto_id`) REFERENCES `proyectos` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,6 +67,7 @@ CREATE TABLE `tareas` (
 
 LOCK TABLES `tareas` WRITE;
 /*!40000 ALTER TABLE `tareas` DISABLE KEYS */;
+INSERT INTO `tareas` VALUES (8,'Investigar Hosting',0,1),(9,'Administrar inventario',0,1),(10,'Agregar productos al catálogo',1,1),(11,'Carrito de compras',0,2),(12,'Gestión de envíos y seguimiento',0,2),(13,'Agregar nuevos productos',0,2),(14,'Gestión de promociones y descuentos',0,2);
 /*!40000 ALTER TABLE `tareas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,4 +108,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-11  4:30:18
+-- Dump completed on 2023-06-13  3:39:28
