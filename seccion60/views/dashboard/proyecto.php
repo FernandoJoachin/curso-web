@@ -3,6 +3,7 @@
         <div class="contenedor-nueva-tarea">
             <button class="agregar-tarea" type="button" id="agregar-tarea">&#43; Nueva tarea</button>
         </div>
+        <ul class="listado-tareas" id="listado-tareas"></ul>
     </div>
 <?php include_once __DIR__ . "/footer-dashboard.php"; ?>
 
