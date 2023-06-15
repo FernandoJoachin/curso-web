@@ -10,6 +10,8 @@ class Usuario extends ActiveRecord{
     public $email;
     public $password;
     public $repetirPassword;
+    public $password_actual;
+    public $password_nuevo;
     public $token;
     public $confirmado;
 
@@ -20,6 +22,8 @@ class Usuario extends ActiveRecord{
         $this->email = $args["email"] ?? "";
         $this->password = $args["password"] ?? "";
         $this->repetirPassword = $args["repetirPassword"] ?? "";
+        $this->password_actual = $args["password_actual"] ?? "";
+        $this->password_nuevo = $args["password_nuevo"] ?? "";
         $this->token = $args["token"] ?? "";
         $this->confirmado = $args["confirmado"] ?? 0;
     }
@@ -84,6 +88,28 @@ class Usuario extends ActiveRecord{
         if($this->password !== $this->repetirPassword){
             self::$alertas["error"][] = "Los password son diferentes";
         }
+        return self::$alertas;
+    }
+
+    public function validarNuevoPassword(){
+        if(!$this->password_actual){
+            self::$alertas["error"][] = "El password es obligatorio";
+        }
+        if(!$this->password_nuevo){
+            self::$alertas["error"][] = "El nuevo password es obligatorio";
+        }
+
+        if($this->password_nuevo){
+            if(strlen($this->password_nuevo) < 6){
+                self::$alertas["error"][] = "El nuevo password es vulnerable";
+                self::$alertas["error"][] = "Debe tener una extension mayor a 6 carácteres";
+            }
+        }
+
+        if($this->password_nuevo !== $this->repetirPassword){
+            self::$alertas["error"][] = "Los nuevos password son diferentes";
+        }
+
         return self::$alertas;
     }
 

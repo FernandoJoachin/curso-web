@@ -1,0 +1,5 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+.auth{
+    @include mxn.contenedor-sm;
+}

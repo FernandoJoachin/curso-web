@@ -36,5 +36,17 @@
             text-transform: uppercase;
             font-weight: 700;
         }
+
+        .submit-perfil{
+            @include mxn.boton(vr.$indigo,vr.$blanco);
+        }
+        
+    }
+
+    .enlace{
+        color: vr.$indigo;
+        &:hover{
+            color: darken(vr.$indigo, 20%);
+        }
     }
 }
