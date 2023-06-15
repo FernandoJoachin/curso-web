@@ -1,12 +1,38 @@
 @use "base/variables" as vr;
 @use "base/mixins" as mxn;
 
-.barra{
-    background-color: vr.$blanco;
-    padding: 1rem 2rem;
-    box-shadow: 1px 12px 9px -13px vr.$grisOscuro;
+.barra-mobile{
+    background-color: vr.$indigo;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     @include mxn.tablet{
+        display: none;
+    }
+
+    h1{
+        color: vr.$blanco
+    }
+
+    .menu{
+        img{
+            width: 1rem;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.barra{
+    display: none;
+
+    @include mxn.tablet{
+        background-color: vr.$blanco;
+        padding: 1rem 2rem;
+        box-shadow: 1px 12px 9px -13px vr.$grisOscuro;
         display: flex;
         justify-content: space-between;
         align-items: center;

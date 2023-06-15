@@ -58,7 +58,7 @@ CREATE TABLE `tareas` (
   PRIMARY KEY (`id`),
   KEY `fk_tareas_proyectos_idx` (`proyecto_id`),
   CONSTRAINT `fk_tareas_proyectos` FOREIGN KEY (`proyecto_id`) REFERENCES `proyectos` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +67,7 @@ CREATE TABLE `tareas` (
 
 LOCK TABLES `tareas` WRITE;
 /*!40000 ALTER TABLE `tareas` DISABLE KEYS */;
-INSERT INTO `tareas` VALUES (8,'Investigar Hosting',0,1),(9,'Administrar inventario',0,1),(10,'Agregar productos al catálogo',1,1),(11,'Carrito de compras',0,2),(12,'Gestión de envíos y seguimiento',0,2),(13,'Agregar nuevos productos',0,2),(14,'Gestión de promociones y descuentos',0,2);
+INSERT INTO `tareas` VALUES (8,'Investigar Hosting',1,1),(9,'Administrar inventario',0,1),(10,'Agregar productos al catálogo',0,1),(11,'Carrito de compras',0,2),(12,'Gestión de envíos y seguimiento',0,2),(13,'Agregar nuevos productos',0,2),(14,'Gestión de promociones y descuentos',0,2),(28,'prueba',0,1);
 /*!40000 ALTER TABLE `tareas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,7 +86,7 @@ CREATE TABLE `usuarios` (
   `token` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `confirmado` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +95,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (5,'Fernando','ejemplo@correo.com','$2y$10$MxIHwlTQW1IW16rwq1PpReTap1I4qJKMdQuFCrx3gsBa9ZaWdCJy6',NULL,1);
+INSERT INTO `usuarios` VALUES (5,'Fernando Joachin','ejemplo@correo.com','$2y$10$MxIHwlTQW1IW16rwq1PpReTap1I4qJKMdQuFCrx3gsBa9ZaWdCJy6',NULL,1),(10,'Roberto Manzanero','ejemplo3@correo.com','$2y$10$j.oTRnX6SXROm7XuKSrQQ.LsIlvri.xJrF5rBJS31233SQ89hGtfq',NULL,1);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -108,4 +108,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-13  3:39:28
+-- Dump completed on 2023-06-13 23:33:50
