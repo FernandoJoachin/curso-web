@@ -5,6 +5,10 @@
     display: flex;
     justify-content: space-between;
 
+    &--centrar{
+        justify-content: center;
+    }
+
     &__enlace{
         font-size: 1.4rem;
         font-weight: vr.$delgada;
