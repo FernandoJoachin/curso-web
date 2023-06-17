@@ -1,0 +1,143 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+@media (prefers-color-scheme:dark){
+    $grisDarkMode: #2c2c3b;
+    body{
+        background-color: $grisDarkMode;
+    }
+
+    .tagline,.formulario label{
+        color: vr.$blanco;
+    }
+
+    .descripcion-pagina, .formulario .campo input,
+    .nombre-pagina{
+        color: vr.$grisClaro;
+    }
+
+    .formulario .campo input{
+        &::placeholder{
+            color: darken(vr.$grisClaro, 15%);
+        }
+    }
+
+    .formulario .campo input{
+        background-color: lighten(vr.$grisOscuro, 15%);
+    }
+
+    .alerta.error{
+        background-color: lighten(vr.$rojo, 60%);
+    }
+
+    .sidebar{
+        @include mxn.tablet{
+            background-color: darken($grisDarkMode, 5%);
+        }
+        .sidebar-nav a{
+            &.activo, &:hover{
+                background-color: vr.$naranja;
+            }
+        }
+    }
+
+    @include mxn.tablet{
+        .sidebar{
+            background-color: darken($grisDarkMode, 5%);
+        }
+    }
+
+    .barra-mobile, .barra{
+        background-color: darken($grisDarkMode, 5%);
+    }
+
+    .barra{
+        .cerrar-sesion{
+            @include mxn.boton(vr.$naranja,vr.$blanco);
+            padding: 1rem;
+        }
+        p{
+            color: vr.$grisClaro;
+            span{
+                color: vr.$naranja;
+            }
+        }
+    }
+
+    .dashboard .formulario .submit-crear-proyecto,
+    .sidebar .cerrar-sesion-mobile .cerrar-sesion,
+    input[type="submit"]{
+        @include mxn.boton(vr.$naranja,vr.$blanco);
+    }
+
+    .dashboard{
+        background-color: $grisDarkMode;
+
+        .formulario .submit-perfil{
+            @include mxn.boton(vr.$naranja,vr.$blanco);
+        }
+
+        .enlace{
+            color: vr.$grisClaro;
+            &:hover{
+                color: darken(vr.$grisClaro, 20%);
+            }
+        }
+
+        .formulario input:not([type=submit]){
+            background-color: lighten(vr.$grisOscuro, 15%);
+            color: vr.$blanco;
+            &::placeholder{
+                color: darken(vr.$grisClaro, 15%);
+            }
+        }
+    }
+
+    .filtros{
+        background-color: lighten($grisDarkMode, 10%);
+        .filtros-inputs h2,label{
+            color: vr.$blanco;
+        }
+
+        .filtros-inputs input[type="radio"]{
+            accent-color: vr.$naranja;
+        }
+    }
+
+    .listado-proyectos .proyecto{
+        background-color: lighten($grisDarkMode, 25%);
+        &:hover{
+            background-color: lighten($grisDarkMode, 15%);
+        }
+    }
+
+    .listado-tareas .tarea{
+        background-color: lighten($grisDarkMode, 10%);
+        border: none;
+        border-radius: 0.5rem;
+
+        p{
+            padding-left: 1.5rem;
+            color: vr.$grisClaro;
+        }
+
+        .opciones{
+            padding-right: 1.5rem;
+        }
+    }
+
+    .modal .formulario{
+        background-color: $grisDarkMode;
+        input[type="text"]{
+            background-color: lighten(vr.$grisOscuro, 15%);
+            border: none;
+            color: vr.$blanco;
+            &::placeholder{
+                color: darken(vr.$grisClaro, 15%);
+            }
+        }
+        legend{
+            color: vr.$grisClaro;
+        }
+    }
+}

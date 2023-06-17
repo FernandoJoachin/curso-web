@@ -1,0 +1,42 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.footer{
+    background-color: vr.$azul;
+    margin-top: 5rem;
+    padding-top: 3rem;
+    color: vr.$blanco;
+
+    &__grid{
+        @include mxn.contenedor;
+        @include mxn.tablet{
+            @include mxn.grid(2,3rem);
+        }
+    }
+
+    &__logo{
+        @include mxn.logo;
+        @include mxn.texto-fluido(2rem, 4rem)
+    }
+
+    &__texto{
+        line-height: 2rem;
+        text-align: center;
+        @include mxn.tablet{
+            text-align: left;
+        }
+    }
+
+    &__copyright{
+        background-color: darken(vr.$azul, 20%);
+        margin: 3rem 0 0 0;
+        padding: 2rem 0;
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: vr.$black;
+
+        &--regular{
+            font-weight: vr.$regular;
+        }
+    }
+}

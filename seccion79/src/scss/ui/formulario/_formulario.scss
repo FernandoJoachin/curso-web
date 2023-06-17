@@ -1,0 +1,32 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+
+    &__campo{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    &__label{
+        display: block;
+        font-size: 1.8rem;
+        color: rgba(vr.$negro, 0.8);
+    }
+
+    &__input{
+        padding: 1rem;
+        border: 1px solid darken(vr.$gris-claro, 20%);
+        border-radius: 0.5rem;
+    }
+
+    &__submit{
+        @include mxn.boton(darken(vr.$azul, 10%), vr.$blanco);
+        width: auto;
+        align-self: flex-start;
+    }
+}

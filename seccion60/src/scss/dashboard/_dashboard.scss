@@ -11,7 +11,7 @@
 
     .principal{
         flex: 1;
-        overflow: scroll;
+        overflow: auto;
     }
 
     .contenido{
@@ -35,6 +35,18 @@
             border-radius: 0.5rem;
             text-transform: uppercase;
             font-weight: 700;
+        }
+
+        .submit-perfil{
+            @include mxn.boton(vr.$indigo,vr.$blanco);
+        }
+        
+    }
+
+    .enlace{
+        color: vr.$indigo;
+        &:hover{
+            color: darken(vr.$indigo, 20%);
         }
     }
 }

@@ -1,0 +1,25 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.nav{
+    display: flex;
+    flex-direction: column;
+
+    @include mxn.tablet{
+        flex-direction: row;
+    }
+
+    &__enlace{
+        color: vr.$blanco;
+        font-size: 2rem;
+        padding: 2rem;
+        font-weight: vr.$black;
+        text-transform: uppercase;
+        text-align: center;
+
+        &:hover{
+            background-color: vr.$blanco;
+            color: vr.$azul;
+        }
+    }
+}
