@@ -7,23 +7,23 @@
     <form class="formulario" method="POST">
         <div class="formulario__campo">
             <label for="nombre" class="formulario__label">Nombre</label>
-            <input type="text" class="formulario_input" name="nombre" id="nombre" placeholder="Tu Nombre" value="<?php echo $usuario->nombre;?>">
+            <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Tu Nombre" value="<?php echo $usuario->nombre;?>">
         </div>
         <div class="formulario__campo">
             <label for="apellido" class="formulario__label">Apellido</label>
-            <input type="text" class="formulario_input" name="apellido" id="apellido" placeholder="Tu Apellido" value="<?php echo $usuario->apellido;?>">
+            <input type="text" class="formulario__input" name="apellido" id="apellido" placeholder="Tu Apellido" value="<?php echo $usuario->apellido;?>">
         </div>
         <div class="formulario__campo">
             <label for="email" class="formulario__label">Email</label>
-            <input type="email" class="formulario_input" name="email" id="email" placeholder="Tu Email" value="<?php echo $usuario->email;?>">
+            <input type="email" class="formulario__input" name="email" id="email" placeholder="Tu Email" value="<?php echo $usuario->email;?>">
         </div>
         <div class="formulario__campo">
             <label for="password" class="formulario__label">Password</label>
-            <input type="password" class="formulario_input" name="password" id="password" placeholder="Tu Password">
+            <input type="password" class="formulario__input" name="password" id="password" placeholder="Tu Password">
         </div>
         <div class="formulario__campo">
             <label for="repetirPassword" class="formulario__label">Repetir Password</label>
-            <input type="password" class="formulario_input" name="repetirPassword" id="repetirPassword" placeholder="Repite tu Password">
+            <input type="password" class="formulario__input" name="repetirPassword" id="repetirPassword" placeholder="Repite tu Password">
         </div>
 
         <input type="submit" class="formulario__submit" value="Crear cuenta">

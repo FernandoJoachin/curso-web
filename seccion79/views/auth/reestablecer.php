@@ -8,7 +8,7 @@
         <form class="formulario" method="POST">
             <div class="formulario__campo">
                 <label for="password" class="formulario__label">Nuevo password</label>
-                <input type="password" class="formulario_input" name="password" id="password" placeholder="Tu Nuevo Password">
+                <input type="password" class="formulario__input" name="password" id="password" placeholder="Tu Nuevo Password">
             </div>
 
             <input type="submit" class="formulario__submit" value="Guardar password">
