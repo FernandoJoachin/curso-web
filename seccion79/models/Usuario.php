@@ -30,7 +30,7 @@ class Usuario extends ActiveRecord {
         $this->password_nuevo = $args['password_nuevo'] ?? '';
         $this->confirmado = $args['confirmado'] ?? 0;
         $this->token = $args['token'] ?? '';
-        $this->admin = $args['admin'] ?? '';
+        $this->admin = $args['admin'] ?? 0;
     }
 
     // Validar el Login de Usuarios

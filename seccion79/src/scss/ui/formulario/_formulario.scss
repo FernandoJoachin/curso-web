@@ -5,11 +5,42 @@
     display: flex;
     flex-direction: column;
 
+    &__fieldset{
+        border: none;
+        margin-top: 2rem;
+        padding: 0;
+    }
+
+    &__legend{
+        color: vr.$gris;
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+
     &__campo{
         display: flex;
         flex-direction: column;
         gap: 1rem;
         margin: 1.5rem 0;
+    }
+
+    &__contenedor-icono{
+        display: flex;
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+
+    &__icono{
+        background-color: vr.$gris-oscuro;
+        width: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i{
+            color: vr.$blanco;
+            font-size: 2rem;
+        }
     }
 
     &__label{
@@ -22,11 +53,30 @@
         padding: 1rem;
         border: 1px solid darken(vr.$gris-claro, 20%);
         border-radius: 0.5rem;
+
+        &--file{
+            border: none;
+        }
+
+        &--sociales{
+            @extend .formulario__input;
+            flex: 1;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0
+        }
+    }
+
+    &__listado{
+        @include mxn.tags;
     }
 
     &__submit{
         @include mxn.boton(darken(vr.$azul, 10%), vr.$blanco);
         width: auto;
         align-self: flex-start;
+
+        &--registrar{
+            width: 100%;
+        }
     }
 }

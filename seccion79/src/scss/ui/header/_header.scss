@@ -24,14 +24,7 @@
     }
 
     &__enlace{
-        color: vr.$blanco;
-        font-size: 1.4rem;
-        text-transform: uppercase;
-        font-weight: vr.$bold;
-
-        &:hover{
-            color: vr.$azul;
-        }
+        @include mxn.enlace;
     }
 
     &__contenido{

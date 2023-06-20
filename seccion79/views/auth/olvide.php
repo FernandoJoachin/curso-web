@@ -7,7 +7,7 @@
     <form class="formulario" method="POST">
         <div class="formulario__campo">
             <label for="email" class="formulario__label">Email</label>
-            <input type="email" class="formulario_input" name="email" id="email" placeholder="Tu Email">
+            <input type="email" class="formulario__input" name="email" id="email" placeholder="Tu Email">
         </div>
 
         <input type="submit" class="formulario__submit" value="Enviar instrucciones">

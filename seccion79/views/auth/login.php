@@ -7,11 +7,11 @@
     <form class="formulario" method="POST">
         <div class="formulario__campo">
             <label for="email" class="formulario__label">Email</label>
-            <input type="email" class="formulario_input" name="email" id="email" placeholder="Tu Email">
+            <input type="email" class="formulario__input" name="email" id="email" placeholder="Tu Email">
         </div>
         <div class="formulario__campo">
             <label for="password" class="formulario__label">Password</label>
-            <input type="password" class="formulario_input" name="password" id="password" placeholder="Tu Password">
+            <input type="password" class="formulario__input" name="password" id="password" placeholder="Tu Password">
         </div>
 
         <input type="submit" class="formulario__submit" value="Iniciar sesión">
