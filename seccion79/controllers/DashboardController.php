@@ -6,6 +6,7 @@ use MVC\Router;
 
 class DashboardController{
     public static function index(Router $router){
+        esAdmin();
         $router->render("admin/dashboard/index",[
             "titulo" => "Panel de administración"
         ]);

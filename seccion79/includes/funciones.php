@@ -14,3 +14,9 @@ function s($html) : string {
 function pagina_actual($path){
     return str_contains($_SERVER["PATH_INFO"], $path) ? true : false;
 }
+
+function esAdmin(){
+    if(!isset($_SESSION["admin"])){
+        header("Location: /");
+    }
+}
