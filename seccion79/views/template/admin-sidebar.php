@@ -4,7 +4,7 @@
             <i class="fa-solid fa-house dashboard__icono"></i>
             <span class="dashboard__menu-texto">Inicio</span>
         </a>
-        <a href="/admin/ponentes" class="dashboard__enlace <?php echo pagina_actual("/ponentes") ? "dashboard__enlace--actual" : "";?>">
+        <a href="/admin/ponentes?page=1" class="dashboard__enlace <?php echo pagina_actual("/ponentes") ? "dashboard__enlace--actual" : "";?>">
             <i class="fa-solid fa-microphone dashboard__icono"></i>
             <span class="dashboard__menu-texto">Ponentes</span>
         </a>

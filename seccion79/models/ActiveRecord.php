@@ -104,8 +104,8 @@ class ActiveRecord {
     }
 
     // Obtener todos los Registros
-    public static function all() {
-        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id DESC";
+    public static function all($orden = "DESC") {
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id {$orden}";
         $resultado = self::consultarSQL($query);
         return $resultado;
     }
@@ -129,6 +129,20 @@ class ActiveRecord {
         $query = "SELECT * FROM " . static::$tabla . " WHERE {$columna} = '{$valor}'";
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
+    }
+
+    public static function paginar($por_pagina, $offset){
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id DESC LIMIT {$por_pagina} OFFSET {$offset}" ;
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
+    // Obtener el total de registros
+    public static function total(){
+        $query = "SELECT COUNT(*) FROM " . static::$tabla;
+        $resultado = self::$db->query($query);
+        $total = $resultado->fetch_array();
+        return array_shift($total);
     }
 
     //Crea un nuevo registro

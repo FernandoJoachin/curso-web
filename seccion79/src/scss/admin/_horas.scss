@@ -1,0 +1,22 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.horas{
+    @include mxn.reset-lista;
+    @include mxn.grid(1,1rem);
+    @include mxn.tablet{
+        @include mxn.grid(2,1rem);
+    }
+    
+    &__hora{
+        color: vr.$azul;
+        border: 1px solid vr.$azul;
+        border-radius: 1rem;
+        padding: 1rem;
+        text-align: center;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
