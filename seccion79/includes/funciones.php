@@ -16,7 +16,7 @@ function pagina_actual($path){
 }
 
 function esAdmin(){
-    if(!isset($_SESSION["admin"])){
-        header("Location: /");
+    if(empty($_SESSION) || $_SESSION["admin"] === "0"){
+        header("Location: /login");
     }
 }

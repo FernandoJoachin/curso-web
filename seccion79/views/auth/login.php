@@ -4,7 +4,7 @@
 
     <?php include_once __DIR__ . "/../template/alertas.php";?>
 
-    <form class="formulario" method="POST">
+    <form class="formulario" method="POST" action="/login">
         <div class="formulario__campo">
             <label for="email" class="formulario__label">Email</label>
             <input type="email" class="formulario__input" name="email" id="email" placeholder="Tu Email">
