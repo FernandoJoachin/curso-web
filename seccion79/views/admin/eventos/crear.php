@@ -1,6 +1,6 @@
 <h2 class="dashboard__heading"><?php echo $titulo;?></h2>
 <div class="dashboard__contenedor-boton">
-    <a href="/admin/eventos" class="dashboard__boton">
+    <a href="/admin/eventos?page=1" class="dashboard__boton">
         <li class="fa-solid fa-circle-arrow-left"></li>
         Volver
     </a>

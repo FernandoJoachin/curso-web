@@ -12,7 +12,7 @@ class PonentesController{
         session_start();
         esAdmin();
 
-        $pagina_actual = filter_var($_GET["page"], FILTER_VALIDATE_INT);
+        $pagina_actual = filter_var($_GET["page"] ?? "", FILTER_VALIDATE_INT);
         if(!$pagina_actual || $pagina_actual < 1){
             header("Location: /admin/ponentes?page=1");
         }

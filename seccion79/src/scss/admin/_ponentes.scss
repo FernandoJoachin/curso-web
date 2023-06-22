@@ -1,0 +1,25 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.listado-ponentes{
+    @include mxn.reset-lista;
+    @include mxn.grid(1,1rem);
+
+    &__ponente{
+        color: vr.$azul;
+        border: 1px solid vr.$azul;
+        padding: 1rem;
+        border-radius: 1rem;
+        text-align: center;
+
+        &:hover{
+             cursor: pointer;
+        }
+
+        &--seleccionado{
+            @extend .listado-ponentes__ponente;
+            background-color: vr.$azul;
+            color: vr.$blanco;
+        }
+    }
+}
