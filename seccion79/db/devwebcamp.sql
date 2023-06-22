@@ -88,7 +88,7 @@ CREATE TABLE `eventos` (
   CONSTRAINT `fk_eventos_dias` FOREIGN KEY (`dia_id`) REFERENCES `dias` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
   CONSTRAINT `fk_eventos_horas` FOREIGN KEY (`hora_id`) REFERENCES `horas` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
   CONSTRAINT `fk_eventos_ponentes` FOREIGN KEY (`ponente_id`) REFERENCES `ponentes` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,6 +97,7 @@ CREATE TABLE `eventos` (
 
 LOCK TABLES `eventos` WRITE;
 /*!40000 ALTER TABLE `eventos` DISABLE KEYS */;
+INSERT INTO `eventos` VALUES (2,'Introducción a Laravel','Etiam suscipit tellus facilisis ante luctus aliquet. Etiam pretium nisi ut commodo commodo. Pellentesque in risus et augue elementum hendrerit in ac velit. Integer sit amet erat arcu.',50,1,1,6,1),(3,'Introducción a JavaScript','Etiam suscipit tellus facilisis ante luctus aliquet. Etiam pretium nisi ut commodo commodo. Pellentesque in risus et augue elementum hendrerit in ac velit. Integer sit amet erat arcu.',30,1,1,3,18),(4,'Creando un proyecto con Next.js','Etiam suscipit tellus facilisis ante luctus aliquet. Etiam pretium nisi ut commodo commodo. Pellentesque in risus et augue elementum hendrerit in ac velit. Integer sit amet erat arcu.',40,2,2,4,11),(5,'Introducción a PHP','Etiam suscipit tellus facilisis ante luctus aliquet. Etiam pretium nisi ut commodo commodo. Pellentesque in risus et augue elementum hendrerit in ac velit. Integer sit amet erat arcu.',20,2,1,3,9),(6,'Introducción a Python','Etiam suscipit tellus facilisis ante luctus aliquet. Etiam pretium nisi ut commodo commodo. Pellentesque in risus et augue elementum hendrerit in ac velit. Integer sit amet erat arcu.',10,2,1,2,3);
 /*!40000 ALTER TABLE `eventos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -193,4 +194,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-21  3:17:22
+-- Dump completed on 2023-06-22  2:19:36
