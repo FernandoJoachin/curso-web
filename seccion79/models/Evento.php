@@ -11,9 +11,13 @@ class Evento extends ActiveRecord {
     public $descripcion;
     public $disponibles;
     public $categoria_id;
+    public $categoria;
     public $dia_id;
+    public $dia;
     public $hora_id;
+    public $hora;
     public $ponente_id;
+    public $ponente;
 
     public function __construct($args = [])
     {
@@ -22,9 +26,13 @@ class Evento extends ActiveRecord {
         $this->descripcion = $args['descripcion'] ?? '';
         $this->disponibles = $args['disponibles'] ?? null;
         $this->categoria_id = $args['categoria_id'] ?? null;
+        $this->categoria = $args['categoria'] ?? null;
         $this->dia_id = $args['dia_id'] ?? null;
+        $this->dia = $args['dia'] ?? null;
         $this->hora_id = $args['hora_id'] ?? null;
+        $this->hora = $args['hora'] ?? null;
         $this->ponente_id = $args['ponente_id'] ?? null;
+        $this->ponente= $args['ponente'] ?? null;
     }
     
     public function validar() {

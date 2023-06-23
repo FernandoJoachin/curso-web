@@ -8,7 +8,7 @@
             <i class="fa-solid fa-microphone dashboard__icono"></i>
             <span class="dashboard__menu-texto">Ponentes</span>
         </a>
-        <a href="/admin/eventos" class="dashboard__enlace <?php echo pagina_actual("/eventos") ? "dashboard__enlace--actual" : "";?>">
+        <a href="/admin/eventos?page=1" class="dashboard__enlace <?php echo pagina_actual("/eventos") ? "dashboard__enlace--actual" : "";?>">
             <i class="fa-solid fa-calendar"></i>
             <span class="dashboard__menu-texto">Eventos</span>
         </a>

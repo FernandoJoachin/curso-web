@@ -18,5 +18,22 @@
         &:hover{
             cursor: pointer;
         }
+
+        &--seleccionada{
+            @extend .horas__hora;
+            background-color: vr.$azul;
+            color: vr.$blanco;
+        }
+
+        &--desactivada{
+            @extend .horas__hora;
+            border: 1px solid vr.$gris;
+            color: vr.$gris;
+            opacity: 0.5;
+
+            &:hover{
+                cursor: not-allowed;
+            }
+        }
     }
 }
