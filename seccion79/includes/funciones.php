@@ -12,11 +12,19 @@ function s($html) : string {
 }
 
 function pagina_actual($path){
-    return str_contains($_SERVER["PATH_INFO"], $path) ? true : false;
+    return str_contains($_SERVER["PATH_INFO"] ?? "", $path) ? true : false;
 }
 
 function esAdmin(){
-    if(empty($_SESSION) || $_SESSION["admin"] === "0"){
-        header("Location: /login");
+    if(!isset($_SESSION)) {
+        session_start();
     }
+    return isset($_SESSION['admin']) && !empty($_SESSION['admin']);
+}
+
+function esta_Autenticado(){
+    if(!isset($_SESSION)) {
+        session_start();
+    }
+    return isset($_SESSION["nombre"]) && !empty($_SESSION);
 }
