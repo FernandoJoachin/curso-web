@@ -1,6 +1,6 @@
 <main class="paquetes">
-    <h2 class="devwebcamp__heading"><?php echo $titulo;?></h2>
-    <p class="devwebcamp__descripcion">Compara los paquetes de DevWebcamp</p>
+    <h2 class="paquetes__heading"><?php echo $titulo;?></h2>
+    <p class="paquetes__descripcion">Compara los paquetes de DevWebcamp</p>
 
     <div class="paquetes__grid">
         <div class="paquete">

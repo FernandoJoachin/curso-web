@@ -99,6 +99,7 @@
     color: v.$blanco;
     text-align: center;
     margin-bottom: 2rem;
+    white-space: nowrap;
 
     @include desktop{
         text-align: left;
@@ -187,6 +188,7 @@
 
 @mixin card{
     border: 1px solid lighten(v.$gris, 10%);
+    border-radius: 0.5rem;
     padding: 3rem;
 
     &__nombre{

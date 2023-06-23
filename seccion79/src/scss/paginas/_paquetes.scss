@@ -14,6 +14,12 @@
 
 .paquete{
     @include mxn.card;
+    &:nth-child(2){
+        order: -1;
+        @include mxn.tablet{
+            order:unset;
+        }
+    }
 
     &__lista{
         @include mxn.reset-lista;

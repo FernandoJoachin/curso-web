@@ -12,8 +12,10 @@ use MVC\Router;
 
 class EventosController{
     public static function index(Router $router){
-        session_start();
-        esAdmin();
+        if(!esAdmin()){
+            header("Location: /login");
+            return;
+        }
 
         $pagina_actual = filter_var($_GET["page"] ?? "", FILTER_VALIDATE_INT);
         if(!$pagina_actual || $pagina_actual < 1){
@@ -44,8 +46,10 @@ class EventosController{
     }
 
     public static function crear(Router $router){
-        session_start();
-        esAdmin();
+        if(!esAdmin()){
+            header("Location: /login");
+            return;
+        }
 
         $alertas = [];
         $categorias = Categoria::all("ASC");
@@ -75,8 +79,10 @@ class EventosController{
     }
 
     public static function editar(Router $router){
-        session_start();
-        esAdmin();
+        if(!esAdmin()){
+            header("Location: /login");
+            return;
+        }
 
         $alertas = [];
         //Validar ID
@@ -120,8 +126,10 @@ class EventosController{
 
     public static function eliminar(Router $router){
         if($_SERVER["REQUEST_METHOD"] === "POST"){
-            session_start();
-            esAdmin();
+            if(!esAdmin()){
+                header("Location: /login");
+                return;
+            }
 
             $id = $_POST["id"];
             $evento = Evento::find($id);
