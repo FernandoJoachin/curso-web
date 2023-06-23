@@ -141,9 +141,9 @@ class PonentesController{
     }
 
     public static function eliminar(){
-        session_start();
-        esAdmin();
         if($_SERVER["REQUEST_METHOD"] === "POST") {
+            session_start();
+            esAdmin();
 
             $id = $_POST["id"];
             $ponente = Ponente::find($id);
