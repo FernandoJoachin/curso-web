@@ -1,0 +1,82 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.boletos{
+    &__grid{
+        @include mxn.contenedor-sm;
+        @include mxn.grid(1,5rem);
+    }
+}
+
+.boleto{
+    width: min(100% - 5rem, 65rem);
+    margin: 0 auto;
+    padding: 6rem;
+    border-radius: 2rem;
+    color: vr.$blanco;
+    position: relative;
+
+    &::before, &::after{
+        position: absolute;
+        content: "";
+        background-color: vr.$blanco;
+        width: 5rem;
+        height: 5rem;
+        top: calc(50% - 2.5rem);
+    }
+
+    &::before{
+        clip-path: circle(50% at 25% 50%);
+        left: 0;
+    }
+
+    &::after{
+        clip-path: circle(50% at 75% 50%);
+        right: 0;
+    }
+
+    &--presencial{
+        background-color:hsla(168,88%,51%,1);
+        background-image:
+        radial-gradient(at 59% 84%, hsla(240,61%,61%,1) 0px, transparent 50%),
+        radial-gradient(at 76% 22%, hsla(240,61%,61%,1) 0px, transparent 50%),
+        radial-gradient(at 91% 82%, hsla(134,64%,68%,1) 0px, transparent 50%),
+    }
+
+    &--virtual{
+        background-color: vr.$secundario;
+    }
+
+    &--gratis{
+        background-color: vr.$azul;
+    }
+
+    &__logo{
+        @include mxn.logo;
+        @include mxn.texto-fluido(2rem,4rem);
+    }
+
+    &__plan{
+        font-size: 2rem;
+        text-transform: uppercase;
+        margin: 3rem 0 0 0;
+    }
+
+    &__precio{
+        margin: 3rem 0 0 0;
+        font-weight: vr.$black;
+        font-size: 4rem;
+    }
+
+    &__enlace-contenedor{
+        margin-top: 5rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__enlace{
+        @include mxn.boton(vr.$azul, vr.$blanco);
+        width: auto;
+        border-radius: 0.5rem;
+    }
+}

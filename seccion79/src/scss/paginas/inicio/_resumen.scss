@@ -1,0 +1,41 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.resumen{
+    background-image: linear-gradient(to right, rgba(vr.$azul, 0.7), rgba(vr.$azul, 0.9)), url(../img/bg_numeros.jpg);
+    background-image: linear-gradient(to right, rgba(vr.$azul, 0.7), rgba(vr.$azul, 0.9)), image-set(
+        url(../img/bg_numeros.avif) 1px,
+        url(../img/bg_numeros.webp) 1px,
+        url(../img/bg_numeros.jpg) 1px
+    );
+    padding: 12rem 0;
+    background-size: cover;
+    background-position: center;
+
+    &__grid{
+        @include mxn.contenedor;
+        @include mxn.grid(1,5rem);
+        @include mxn.tablet{
+            @include mxn.grid(2,5rem)
+        }
+    }
+
+    &__bloque{
+        text-align: center;
+        color: vr.$blanco;
+    }
+
+    &__texto{
+        font-weight: vr.$bold;
+        line-height: 1;
+        margin: 0;
+        font-size: 2.4rem;
+        text-transform: uppercase;
+
+        &--numero{
+            @extend .resumen__texto;
+            font-size: 8rem;
+        }
+    }
+
+}

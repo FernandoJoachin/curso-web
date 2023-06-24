@@ -1,0 +1,60 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.speakers{
+    &__grid{
+        @include mxn.contenedor;
+        @include mxn.grid(1,5rem);
+
+        @include mxn.tablet{
+            @include mxn.grid(2,5rem);
+        }
+
+        @include mxn.xl_desktop{
+            @include mxn.grid(3,5rem);
+        }
+    }
+}
+
+.speaker{
+    @include mxn.card;
+    background-position: center top;
+    background-size: 350px;
+    background-repeat: no-repeat;
+
+    @for $i from 1 through 4 {
+        &:nth-child(4n + #{$i}) {
+            background-image: image-set(
+                url(../img/bg_#{$i}.avif) 1x,
+                url(../img/bg_#{$i}.webp) 1x,
+                url(../img/bg_#{$i}.png) 1x
+            );
+        }
+    }
+
+    &__imagen{
+        min-width: 350px;
+        
+        @include mxn.tablet{
+            min-width: unset;
+        }
+    }
+
+    &__ubicacion{
+        color: vr.$gris;
+        margin: 1rem 0;
+        font-size: 2rem;
+        line-height: 1.5;
+    }
+
+    &__listado-skills{
+        @include mxn.tags;
+    }
+}
+
+.speaker-sociales{
+    @include mxn.menu-social(vr.$negro,3rem);
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}

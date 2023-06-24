@@ -17,7 +17,7 @@ $router = new Router();
 
 
 // Login
-$router->get('/', [AuthController::class, 'login']);
+//$router->get('/', [AuthController::class, 'login']);
 $router->get('/login', [AuthController::class, 'login']);
 $router->post('/login', [AuthController::class, 'login']);
 $router->post('/logout', [AuthController::class, 'logout']);
@@ -64,9 +64,10 @@ $router->get('/admin/registrados', [RegistradosController::class, 'index']);
 $router->get('/admin/regalos', [RegalosController::class, 'index']);
 
 //Área pública
-//$router->get('/', [PaginasController::class, 'index']);
+$router->get('/', [PaginasController::class, 'index']);
 $router->get('/devwebcamp', [PaginasController::class, 'evento']);
 $router->get('/paquetes', [PaginasController::class, 'paquetes']);
 $router->get('/workshops-conferencia', [PaginasController::class, 'conferencias']);
+$router->get('/404', [PaginasController::class, 'error']);
 
 $router->comprobarRutas();

@@ -1,0 +1,14 @@
+@use "base/variables" as vr;
+
+.pagina_404{
+    &__heading{
+        color: vr.$rojo;
+    }
+    &__contenedor{
+        text-align: center;
+    }
+
+    &__enlace{
+        color: vr.$azul;
+    }
+}
