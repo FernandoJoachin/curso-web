@@ -10,6 +10,10 @@
             align-items: flex-start;
         }
     }
+
+    &__submit{
+        @include mxn.boton(vr.$azul, vr.$blanco);
+    }
 }
 
 .paquete{
@@ -28,7 +32,7 @@
 
     &__precio{
         font-size: 6rem;
-        margin: 3rem 0 0 0;
+        margin: 3rem 0;
         color: vr.$azul;
         font-weight: vr.$black;
         text-align: center;
