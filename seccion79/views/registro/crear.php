@@ -74,7 +74,7 @@
             .then(respuesta => respuesta.json())
             .then(resultado => {
                 if(resultado.resultado){
-                    actions.redirect("http://devwebcamp.cm/finalizar-registro/conferencias");
+                  window.location.href = "/finalizar-registro/conferencias";
                 }
             })
 
