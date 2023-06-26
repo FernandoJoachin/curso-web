@@ -43,6 +43,15 @@
         }
     }
 
+    &__contenedor-icono-tag{
+        @extend .formulario__contenedor-icono;
+    }
+
+    &__icono-tag{
+        @extend .formulario__icono;
+        cursor: pointer;
+    }
+
     &__label{
         display: block;
         font-size: 1.8rem;
@@ -63,6 +72,13 @@
             flex: 1;
             border-top-left-radius: 0;
             border-bottom-left-radius: 0
+        }
+
+        &--tag{
+            @extend .formulario__input;
+            flex: 1;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0
         }
     }
 

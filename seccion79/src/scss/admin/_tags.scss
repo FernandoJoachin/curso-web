@@ -1,0 +1,37 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+
+.listado-tags{
+    @include mxn.reset-lista;
+    @include mxn.grid(1,1rem);
+    gap: unset;
+    border-radius: 0.5rem;
+    background-color: #323741;
+
+    &__tag{
+        color: vr.$blanco;
+        padding: 1rem;
+        margin: 0.7rem;
+        border-radius: 1rem;
+        text-align: left;
+
+
+        &:hover{
+            cursor: pointer;
+            background-color: #51586c;
+            border-radius: 0.5rem;
+        }
+
+        &--seleccionado{
+            @extend .listado-tags__tag;
+            background-color: vr.$azul;
+            color: vr.$blanco;
+        }
+    }
+
+    &__no-resultado{
+        text-align: center;
+        color: vr.$blanco;
+    }
+}

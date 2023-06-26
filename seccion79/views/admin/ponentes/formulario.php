@@ -36,7 +36,13 @@
     <legend class="formulario__legend">Informacion Extra</legend>
     <div class="formulario__campo">
         <label for="tags_input" class="formulario__label">Áreas de experencias (separadas por comas)</label>
-        <input type="text" class="formulario__input" id="tags_input" placeholder="Ej. Node.js, PHP, CSS, Laravel, UX / UI">
+        <div class="formulario__contenedor-icono-tag">
+            <input type="text" class="formulario__input formulario__input--tag" id="tags_input" placeholder="Ej. Node.js, PHP, CSS, Laravel, UX / UI">
+            <div class="formulario__icono-tag">
+                <i class="fa-solid fa-chevron-up fa-rotate-180"></i>
+            </div>
+        </div>
+        <ul class="listado-tags" id="listado-tags"></ul>
         <div class="formulario__listado" id="tags"></div>
         <input type="hidden" name="tags" value="<?php echo $ponente->tags ?? "";?>">
     </div>

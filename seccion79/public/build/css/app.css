@@ -880,28 +880,31 @@ h3 {
   gap: 1rem;
   margin: 1.5rem 0;
 }
-.formulario__contenedor-icono {
+.formulario__contenedor-icono, .formulario__contenedor-icono-tag {
   display: flex;
   border-radius: 0.5rem;
   overflow: hidden;
 }
-.formulario__icono {
+.formulario__icono, .formulario__icono-tag {
   background-color: #1E293B;
   width: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.formulario__icono i {
+.formulario__icono i, .formulario__icono-tag i {
   color: #FFFFFF;
   font-size: 2rem;
+}
+.formulario__icono-tag {
+  cursor: pointer;
 }
 .formulario__label {
   display: block;
   font-size: 1.8rem;
   color: rgba(26, 27, 21, 0.8);
 }
-.formulario__input, .formulario__input--sociales, .formulario__select--sociales, .formulario__select {
+.formulario__input, .formulario__input--tag, .formulario__select--tag, .formulario__input--sociales, .formulario__select--sociales, .formulario__select {
   padding: 1rem;
   border: 1px solid #b1c7dd;
   border-radius: 0.5rem;
@@ -913,6 +916,11 @@ h3 {
   flex: 1;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+.formulario__input--tag, .formulario__select--tag {
+  flex: 1;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .formulario__radio {
   display: flex;
@@ -1358,6 +1366,7 @@ h3 {
   display: inline-block;
   text-transform: uppercase;
   font-size: 1.4rem;
+  margin-bottom: 2rem;
 }
 .dashboard__boton:hover {
   background-color: #0063c1;
@@ -1524,6 +1533,38 @@ h3 {
 }
 .listado-ponentes__ponente--seleccionado {
   background-color: #007df4;
+  color: #FFFFFF;
+}
+
+.listado-tags {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+  gap: unset;
+  border-radius: 0.5rem;
+  background-color: #323741;
+}
+.listado-tags__tag, .listado-tags__tag--seleccionado {
+  color: #FFFFFF;
+  padding: 1rem;
+  margin: 0.7rem;
+  border-radius: 1rem;
+  text-align: left;
+}
+.listado-tags__tag:hover, .listado-tags__tag--seleccionado:hover {
+  cursor: pointer;
+  background-color: #51586c;
+  border-radius: 0.5rem;
+}
+.listado-tags__tag--seleccionado {
+  background-color: #007df4;
+  color: #FFFFFF;
+}
+.listado-tags__no-resultado {
+  text-align: center;
   color: #FFFFFF;
 }
 /*# sourceMappingURL=app.css.map */
