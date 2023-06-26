@@ -4,6 +4,7 @@ require_once __DIR__ . '/../includes/app.php';
 
 use Controllers\APIEventos;
 use Controllers\APIPonentes;
+use Controllers\APITags;
 use MVC\Router;
 use Controllers\AuthController;
 use Controllers\DashboardController;
@@ -12,12 +13,13 @@ use Controllers\PaginasController;
 use Controllers\PonentesController;
 use Controllers\RegalosController;
 use Controllers\RegistradosController;
+use Controllers\RegistroController;
 
 $router = new Router();
 
 
 // Login
-$router->get('/', [AuthController::class, 'login']);
+//$router->get('/', [AuthController::class, 'login']);
 $router->get('/login', [AuthController::class, 'login']);
 $router->post('/login', [AuthController::class, 'login']);
 $router->post('/logout', [AuthController::class, 'logout']);
@@ -58,15 +60,26 @@ $router->post('/admin/eventos/eliminar', [EventosController::class, 'eliminar'])
 $router->get('/api/eventos-horario', [APIEventos::class, 'index']);
 $router->get('/api/ponentes', [APIPonentes::class, 'index']);
 $router->get('/api/ponente', [APIPonentes::class, 'ponente']);
+$router->get('/api/tags', [APITags::class, 'index']);
 
 $router->get('/admin/registrados', [RegistradosController::class, 'index']);
 
 $router->get('/admin/regalos', [RegalosController::class, 'index']);
 
+//Registro Usuarios
+$router->get('/finalizar-registro', [RegistroController::class, 'crear']);
+$router->post('/finalizar-registro/gratis', [RegistroController::class, 'gratis']);
+$router->post('/finalizar-registro/pagar', [RegistroController::class, 'pagar']);
+$router->post('/finalizar-registro/conferencias', [RegistroController::class, 'conferencias']);
+
+//Boleto virtual
+$router->get('/boleto', [RegistroController::class, 'boleto']);
+
 //Área pública
-//$router->get('/', [PaginasController::class, 'index']);
+$router->get('/', [PaginasController::class, 'index']);
 $router->get('/devwebcamp', [PaginasController::class, 'evento']);
 $router->get('/paquetes', [PaginasController::class, 'paquetes']);
 $router->get('/workshops-conferencia', [PaginasController::class, 'conferencias']);
+$router->get('/404', [PaginasController::class, 'error']);
 
 $router->comprobarRutas();

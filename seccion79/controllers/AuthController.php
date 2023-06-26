@@ -10,6 +10,7 @@ class AuthController {
     public static function login(Router $router) {
 
         $alertas = [];
+        $usuario = new Usuario;
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $usuario = new Usuario($_POST);
@@ -50,6 +51,7 @@ class AuthController {
         // Render a la vista 
         $router->render('auth/login', [
             'titulo' => 'Iniciar Sesión',
+            'usuario' => $usuario, 
             'alertas' => $alertas
         ]);
     }

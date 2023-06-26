@@ -103,6 +103,7 @@
         @include mxn.boton(vr.$azul,vr.$blanco);
         text-transform: uppercase;
         font-size: 1.4rem;
+        margin-bottom: 2rem;
 
         @include mxn.tablet{
             width: auto;

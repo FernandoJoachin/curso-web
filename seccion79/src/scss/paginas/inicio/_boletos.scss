@@ -1,0 +1,154 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.boletos{
+    &__grid{
+        @include mxn.contenedor-sm;
+        @include mxn.grid(1,5rem);
+    }
+}
+
+.boleto{
+    width: min(100% - 5rem, 65rem);
+    margin: 0 auto;
+    padding: 6rem;
+    border-radius: 2rem;
+    color: vr.$blanco;
+    position: relative;
+
+    &::before, &::after{
+        position: absolute;
+        content: "";
+        background-color: vr.$blanco;
+        width: 5rem;
+        height: 5rem;
+        top: calc(50% - 2.5rem);
+    }
+
+    &::before{
+        clip-path: circle(50% at 25% 50%);
+        left: 0;
+    }
+
+    &::after{
+        clip-path: circle(50% at 75% 50%);
+        right: 0;
+    }
+
+    &--presencial{
+        background-color:hsla(168,88%,51%,1);
+        background-image:
+        radial-gradient(at 59% 84%, hsla(240,61%,61%,1) 0px, transparent 50%),
+        radial-gradient(at 76% 22%, hsla(240,61%,61%,1) 0px, transparent 50%),
+        radial-gradient(at 91% 82%, hsla(134,64%,68%,1) 0px, transparent 50%),
+    }
+
+    &--virtual{
+        background-color: vr.$secundario;
+    }
+
+    &--gratis{
+        background-color: vr.$azul;
+    }
+
+    &__logo{
+        @include mxn.logo;
+        @include mxn.texto-fluido(2rem,4rem);
+    }
+
+    &__plan{
+        font-size: 2rem;
+        text-transform: uppercase;
+        margin: 3rem 0 0 0;
+    }
+
+    &__precio{
+        margin: 3rem 0 0 0;
+        font-weight: vr.$black;
+        font-size: 4rem;
+    }
+
+    &__enlace-contenedor{
+        margin-top: 5rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__enlace{
+        @include mxn.boton(vr.$azul, vr.$blanco);
+        width: auto;
+        border-radius: 0.5rem;
+    }
+
+    $modificador: &;
+
+    &--acceso{
+        width: 30rem;
+        height: 50rem;
+        padding: 10rem 3rem;
+
+        @include mxn.tablet{
+            width: 60rem;
+            height: 30rem;
+            padding: 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #{$modificador}__logo{
+            @include mxn.texto-fluido(2rem,3rem);
+            margin: 0;
+            text-align: left;
+        }
+
+        #{$modificador}__nombre{
+            font-size: 2.4rem;
+            text-transform: uppercase;
+            font-weight: vr.$black;
+        }
+
+        #{$modificador}__codigo{
+            font-size: 4rem;
+            font-weight: vr.$bold;
+            text-align: center;
+            position: absolute;
+            bottom: 7rem;
+            margin: 0;
+            left: 0;
+            width: 100%;
+
+            @include mxn.tablet{
+                rotate: 90deg;
+                transform-origin: 0 0;
+                top: 0;
+                left: calc(100% - 5rem);
+                width: 30rem;
+            }
+        }
+    }
+
+    &::before{
+        clip-path: circle(50% at 50% 25%);
+        left: calc(50% - 2.5rem);
+        top: 0;
+
+        @include mxn.tablet{
+            clip-path: circle(50% at 25% 50%);
+            left: 0;
+            top: calc(50% - 2.5rem);
+        }
+    }
+
+    &::after{
+        clip-path: circle(50% at 50% 75%);
+        left: calc(50% - 2.5rem);
+        top: calc(100% - 5rem);
+
+        @include mxn.tablet{
+            clip-path: circle(50% at 75% 50%);
+            left: calc(100% - 5rem);
+            top: calc(50% - 2.5rem);
+        }
+    }
+}
