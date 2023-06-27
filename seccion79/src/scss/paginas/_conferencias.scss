@@ -89,4 +89,18 @@
     &__autor-nombre{
         font-weight: vr.$bold;
     }
+
+    &__agregar{
+        @include mxn.boton(vr.$blanco,vr.$negro);
+        margin-top: 1rem;
+
+        &:disabled{
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+
+    &__fecha{
+        margin: 6rem 0 3rem 0;
+    }
 }

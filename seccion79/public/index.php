@@ -70,7 +70,7 @@ $router->get('/admin/regalos', [RegalosController::class, 'index']);
 $router->get('/finalizar-registro', [RegistroController::class, 'crear']);
 $router->post('/finalizar-registro/gratis', [RegistroController::class, 'gratis']);
 $router->post('/finalizar-registro/pagar', [RegistroController::class, 'pagar']);
-$router->post('/finalizar-registro/conferencias', [RegistroController::class, 'conferencias']);
+$router->get('/finalizar-registro/conferencias', [RegistroController::class, 'conferencias']);
 
 //Boleto virtual
 $router->get('/boleto', [RegistroController::class, 'boleto']);
