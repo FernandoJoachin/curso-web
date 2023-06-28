@@ -10,16 +10,16 @@ class AuthController {
     public static function login(Router $router) {
 
         $alertas = [];
-        $usuario = new Usuario;
+        $auth = new Usuario;
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $usuario = new Usuario($_POST);
+            $auth = new Usuario($_POST);
 
-            $alertas = $usuario->validarLogin();
+            $alertas = $auth->validarLogin();
             
             if(empty($alertas)) {
                 // Verificar quel el usuario exista
-                $usuario = Usuario::where('email', $usuario->email);
+                $usuario = Usuario::where('email', $auth->email);
                 if(!$usuario || !$usuario->confirmado ) {
                     Usuario::setAlerta('error', 'El Usuario No Existe o no esta confirmado');
                 } else {
@@ -47,11 +47,10 @@ class AuthController {
         }
 
         $alertas = Usuario::getAlertas();
-        
         // Render a la vista 
         $router->render('auth/login', [
             'titulo' => 'Iniciar Sesión',
-            'usuario' => $usuario, 
+            'usuario' => $auth, 
             'alertas' => $alertas
         ]);
     }
