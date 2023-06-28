@@ -960,6 +960,9 @@ h3 {
   font-weight: 700;
   margin: 0;
 }
+.registro__texto {
+  text-align: center;
+}
 .registro__eliminar {
   all: unset;
   color: rgb(169, 0, 0);

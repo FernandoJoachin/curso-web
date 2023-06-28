@@ -71,6 +71,10 @@
         margin: 0;
     }
 
+    &__texto{
+        text-align: center;
+    }
+
     &__eliminar{
         all: unset;
         color: vr.$rojo;

@@ -10,6 +10,8 @@ import Swal from "sweetalert2";
         const formularioRegistro = document.querySelector("#registro");
         formularioRegistro.addEventListener("submit", submitFormulario);
 
+        mostrarEventos();
+
         function seleccionarEvento(e){
             if(eventos.length < 5){
                 //Deshabilitar el evento
@@ -51,6 +53,11 @@ import Swal from "sweetalert2";
                     eventoDOM.appendChild(eliminarBtn);
                     resumen.appendChild(eventoDOM);
                 })
+            }else{
+                const noRegistro = document.createElement("P");
+                noRegistro.textContent = "No hay eventos, añade hasta 5 del lazo izquierdo";
+                noRegistro.classList.add("registro__texto");
+                resumen.appendChild(noRegistro);
             }
         }
     
@@ -61,7 +68,7 @@ import Swal from "sweetalert2";
             mostrarEventos();
         }
 
-        function submitFormulario(e){
+        async function submitFormulario(e){
             e.preventDefault();
             
             //Obtener el regalo
@@ -76,6 +83,36 @@ import Swal from "sweetalert2";
                     confirmButtonText: "OK"
                 })
                 return;
+            }
+
+            const url = "/finalizar-registro/conferencias";
+            const datos = new FormData();
+            datos.append("eventos", evento_id);
+            datos.append("regalo_id", regalo_id);
+            
+            try {
+                const respuesta = await fetch(url, {
+                    method: "POST",
+                    body: datos
+                });
+                const resultado = await respuesta.json();
+                if(resultado.resultado){
+                    Swal.fire({
+                        title: "Registro Exitoso",
+                        text: "Tus conferencias se han almacenado y tu registro fue exitoso, te esperamos en DevWebcamp",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    }).then(() => location.href = `/boleto?id=${resultado.token}`)
+                }else{
+                    Swal.fire({
+                        title: "Error",
+                        text: "Hubo un error",
+                        icon: "error",
+                        confirmButtonText: "OK"
+                    }).then(() => location.reload())
+                }
+            } catch (error) {
+                console.log(error);
             }
         }
     
