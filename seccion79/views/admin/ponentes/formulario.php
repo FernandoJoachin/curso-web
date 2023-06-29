@@ -42,7 +42,9 @@
                 <i class="fa-solid fa-chevron-up fa-rotate-180"></i>
             </div>
         </div>
-        <ul class="listado-tags" id="listado-tags"></ul>
+        <div class="scroll">
+            <ul class="listado-tags" id="listado-tags"></ul>
+        </div>
         <div class="formulario__listado" id="tags"></div>
         <input type="hidden" name="tags" value="<?php echo $ponente->tags ?? "";?>">
     </div>

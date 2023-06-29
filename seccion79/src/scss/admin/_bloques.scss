@@ -1,0 +1,55 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.bloques{
+    @include mxn.contenedor;
+    @include mxn.tablet{
+        margin-top: 5rem;
+    }
+
+    &__grid{
+        @include mxn.grid(1,3rem);
+        @include mxn.desktop{
+            @include mxn.grid(2,3rem);
+        }
+    }
+}
+
+.bloque{
+    padding: 3rem;
+    color: vr.$blanco;
+    border-radius: 1rem;
+
+    &:nth-child(1){
+        @include mxn.bg-gradient(#191970);
+    }
+
+    &:nth-child(2){
+        @include mxn.bg-gradient(#228B22);
+    }
+
+    &:nth-child(3){
+        @include mxn.bg-gradient(#8B4513);
+    }
+
+    &:nth-child(4){
+        @include mxn.bg-gradient(#2F3033);
+    }
+
+    &__heading{
+        margin: 1rem 0 2rem 0;
+        font-size: 3.6rem;
+    }
+
+    &__texto{
+        margin: 1rem 0;
+        padding-bottom: 1rem;
+
+        &--cantidad{
+            margin-top: 5rem;
+            font-weight: vr.$black;
+            font-size: 6rem;
+            text-align: center;
+        }
+    }
+}

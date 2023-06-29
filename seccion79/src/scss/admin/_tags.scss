@@ -6,7 +6,7 @@
     @include mxn.reset-lista;
     @include mxn.grid(1,1rem);
     gap: unset;
-    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
     background-color: #323741;
 
     &__tag{
@@ -33,5 +33,15 @@
     &__no-resultado{
         text-align: center;
         color: vr.$blanco;
+    }
+}
+
+.scroll{
+    height: auto;
+
+    &-mostrar{
+        border-radius: 1rem;
+        height: 28rem;
+        overflow: auto;
     }
 }

@@ -6,12 +6,22 @@ use Model\Ponente;
 
 class APIPonentes{
     public static function index(){
+        if(!esAdmin()){
+            echo json_encode([]);
+            return;
+        }
+
         $ponentes = Ponente::all();
         header('Content-Type: application/json');
         echo json_encode($ponentes, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     }
 
     public static function ponente(){
+        if(!esAdmin()){
+            echo json_encode([]);
+            return;
+        }
+        
         $id = filter_var($_GET["id"] ?? "", FILTER_VALIDATE_INT);
 
         if(!$id || $id < 1){
