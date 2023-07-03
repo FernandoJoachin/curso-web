@@ -65,6 +65,10 @@ class AuthController {
     }
 
     public static function registro(Router $router) {
+        if(esta_Autenticado()){
+            header("Location: /finalizar-registro");
+            return;
+        }
         $alertas = [];
         $usuario = new Usuario;
 
