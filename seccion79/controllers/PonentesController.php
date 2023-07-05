@@ -25,6 +25,7 @@ class PonentesController{
 
         if($paginacion->total_paginas() < $pagina_actual){
             header("Location: /admin/ponentes?page=1");
+            return;
         }
 
         $ponentes = Ponente::paginar($registros_por_pagina, $paginacion->offset());

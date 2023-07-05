@@ -28,7 +28,9 @@
             <a href="/devwebcamp" class="nav__enlace <?php echo pagina_actual("/devwebcamp") ? "nav__enlace--actual" : "";?>">Eventos</a>
             <a href="/paquetes" class="nav__enlace <?php echo pagina_actual("/paquetes") ? "nav__enlace--actual" : "";?>">Paquetes</a>
             <a href="/workshops-conferencia" class="nav__enlace <?php echo pagina_actual("/workshops-conferencia") ? "nav__enlace--actual" : "";?>">Workshops / Conferencias</a>
-            <a href="/registro" class="nav__enlace <?php echo pagina_actual("/registro") ? "nav__enlace--actual" : "";?>">Comprar pase</a>
+            <?php if(!esta_Autenticado()){ ?>
+                <a href="/registro" class="nav__enlace <?php echo pagina_actual("/registro") ? "nav__enlace--actual" : "";?>">Comprar pase</a>
+            <?php }?>
         </nav>
     </div>
 </div>

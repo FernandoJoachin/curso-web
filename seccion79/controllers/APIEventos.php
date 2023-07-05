@@ -6,6 +6,11 @@ use Model\EventoHorario;
 
 class APIEventos{
     public static function index(){
+        if(!esAdmin()){
+            echo json_encode([]);
+            return;
+        }
+        
         $dia_id = filter_var($_GET["dia_id"] ?? "", FILTER_VALIDATE_INT);
         $categoria_id = filter_var($_GET["categoria_id"] ?? "", FILTER_VALIDATE_INT);
 

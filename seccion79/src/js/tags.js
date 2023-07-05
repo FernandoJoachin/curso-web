@@ -52,14 +52,17 @@
 
         function allTags(){
             const tagButtonPrevio = document.querySelector(".formulario__icono-tag--allTags");
+            const scroll = document.querySelector(".scroll");
             if(tagButtonPrevio){
                 tagButtonPrevio.classList.remove("formulario__icono-tag--allTags");
+                scroll.classList.remove("scroll-mostrar");
                 while(listadoTags.firstChild){
                     listadoTags.removeChild(listadoTags.firstChild);
                 }
                 return;
             }
             tagButton.classList.add("formulario__icono-tag--allTags");
+            scroll.classList.add("scroll-mostrar");
             tagsDropDown = tagsDB;
             mostrarTagsDropDown();
         }
